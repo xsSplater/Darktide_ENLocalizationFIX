@@ -1,4 +1,4 @@
-# My sincere thanks to comrad deluxghost for the opportunity to make this mod!
+My sincere thanks to comrad deluxghost for the opportunity to make this mod!
 
 # WIP. Will only be updated when I finish the rest of the mod!
 
