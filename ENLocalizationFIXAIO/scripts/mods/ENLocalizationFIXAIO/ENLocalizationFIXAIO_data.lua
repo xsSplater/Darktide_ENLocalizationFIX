@@ -1,4 +1,4 @@
-local mod = get_mod("ENLocalizationFIXTalents")
+local mod = get_mod("ENLocalizationFIXAIO")
 
 local options = {
 	name = mod:localize("mod_name"),
@@ -10,7 +10,6 @@ local options = {
 	}
 }
 
--- Thanks to Wobin!
 local color_options = {}
 for i, color_name in ipairs(Color.list) do
 	table.insert(color_options, {
@@ -40,7 +39,7 @@ local function create_option_set(typeName, defaultColour1)
 	}
 end
 
-table.insert(options.options.widgets, create_option_set("bleed", "maroon"))
+table.insert(options.options.widgets, create_option_set("bleed", "ui_zealot"))
 table.insert(options.options.widgets, create_option_set("brittleness", "medium_orchid"))
 table.insert(options.options.widgets, create_option_set("burn", "sienna"))
 table.insert(options.options.widgets, create_option_set("cleave", "player_slot_2_bright"))
@@ -83,6 +82,7 @@ table.insert(options.options.widgets, create_option_set("weakspot", "green_yello
 		burn_text_colour = "sienna"
 		cleave_text_colour = "player_slot_2_bright"
 		combat_ability_text_colour = "olive_drab"
+		corruption_text_colour = "ui_corruption_medium"
 		crit_text_colour = "citadel_yriel_yellow"
 		damage_text_colour = "citadel_jokaero_orange"
 		finesse_text_colour = "dodger_blue"

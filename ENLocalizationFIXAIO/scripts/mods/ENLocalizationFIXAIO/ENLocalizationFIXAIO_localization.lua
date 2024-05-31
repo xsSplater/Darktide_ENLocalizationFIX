@@ -1,12 +1,12 @@
-local mod = get_mod("ENLocalizationFIXTalents")
+local mod = get_mod("ENLocalizationFIXAIO")
 local InputUtils = require("scripts/managers/input/input_utils")
 
 local localizations = {
 	mod_name = {
-		en = "Enhanced Descriptions - Talents",
+		en = "Enhanced Descriptions - All in one",
 	},
 	mod_description = {
-		en = "Enhanced Descriptions - fixes and additions to game descriptions. A module with descriptions of Talents.\nIf you enable this module together with the main ENLocalizationFIX mod, then will work the edits of the mod that is in the list above. {#color(255, 54, 54)}It's better not to do this to avoid glitches and crashes!{#reset()}",
+		en = "Enhanced Descriptions — fixes and additions to game descriptions.",
 	},
 
 	bleed_colour = {
