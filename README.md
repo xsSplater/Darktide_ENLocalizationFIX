@@ -24,5 +24,7 @@ Download from: [Nexus](https://www.nexusmods.com/warhammer40kdarktide/mods/210)
 # +++------------------------------------------------+++
 
 [Darktide - Talents. Google Sheet with Talents.](https://docs.google.com/spreadsheets/d/17dHDZuDqKM3MNL9VKrO2o8NfAw6uZMiSBNhaoUwxlM0/edit#gid=0)
+![Example](https://i.ibb.co/S5jqPFv/Talents.jpg)
 
 [Darktide - Weapons. Google Sheet with Weapons.](https://docs.google.com/spreadsheets/d/19XepHNFdKV46kWW4CcdzM9PQyIGWJlGJcQfpfUe1mio/edit#gid=0)
+![Example](https://i.ibb.co/dBKbHsg/Weapon-blesss-traits.jpg)
