@@ -1,8 +1,8 @@
+-- Thanks to deluxghost, Ovenproof, Fracticality and Wobin!
+
 local mod = get_mod("ENLocalizationFIXTraits")
 local WTL = get_mod("WhatTheLocalization")
 local InputUtils = require("scripts/managers/input/input_utils")
-
--- Thanks to deluxghost, Ovenproof, Fracticality and Wobin!
 
 local iu_actit = InputUtils.apply_color_to_input_text
 
@@ -11,19 +11,15 @@ local crt_col = Color[mod:get("crit_text_colour")](255, true)
 local crit_chance_rgb = iu_actit("Critical Hit Chance", crt_col)
 local crit_chance_r_rgb = iu_actit("Critical Strike Chance", crt_col)
 local crit_hit_color_rgb = iu_actit("Critical Hit Damage", crt_col)
-
 -- ==============================================================DAMAGE
 local dmg_col = Color[mod:get("damage_text_colour")](255, true)
 local damage_rgb = iu_actit("Damage", dmg_col)
-
 -- ==============================================================STAMINA
 local stam_col = Color[mod:get("stamina_text_colour")](255, true)
 local stamina_rgb = iu_actit("Stamina", stam_col)
-
 -- ==============================================================WEAK SPOT
 local wksp_col = Color[mod:get("weakspot_text_colour")](255, true)
 local weakspot_dmg_rgb = iu_actit("Weakspot Damage", wksp_col)
-
 -- ==============================================================VARIABLES - оепелеммше
 local var_col = Color[mod:get("variables_text_colour")](255, true)
 local p_dmg_var_rgb = iu_actit("+{damage:%s}", var_col)
@@ -34,7 +30,6 @@ local p_wksp_dmg_var_rgb = iu_actit("+{weakspot_damage:%s}", var_col)
 local p_reload_var_rgb = iu_actit("+{reload_speed:%s}", var_col)
 local p_rbc_rgb = iu_actit("+{reduced_block_cost:%s}", var_col)
 local m_bcm_rgb = iu_actit("-{sprinting_cost_multiplier:%s}", var_col)
-
 
 mod.localization_templates = {
 -- Fixes and overhauls by xsSplater
@@ -194,23 +189,8 @@ mod.localization_templates = {
 	return p_reload_var_rgb .. " Reload Speed" end},
 
 -- FOR TESTS ONLY!!!
--- {id = "weap_testum00",
--- loc_keys = {
--- "",},
--- locales = {"en",},
--- handle_func = function(locale, value)
--- return string.gsub(value, "{", "(")
--- end,},
-
+-- {id = "weap_testum00", loc_keys = {"",}, locales = {"en",}, handle_func = function(locale, value) return string.gsub(value, "{", "(") end,},
 }
 
-function mod.on_enabled()
-	if WTL then
-		WTL.reload_templates()
-	end
-end
-function mod.on_disabled()
-	if WTL then
-		WTL.reload_templates()
-	end
-end
+function mod.on_enabled() if WTL then WTL.reload_templates() end end
+function mod.on_disabled() if WTL then WTL.reload_templates() end end
