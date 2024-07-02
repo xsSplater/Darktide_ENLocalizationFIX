@@ -37,6 +37,9 @@ local crit_rgb = iu_actit("Critical", crt_col)
 -- ==============================================================DAMAGE
 local dmg_col = Color[mod:get("damage_text_colour")](255, true)
 local damage_rgb = iu_actit("Damage", dmg_col)
+-- ==============================================================ELECTROCUTED
+local electr_col = Color[mod:get("electrocuted_text_colour")](255, true)
+local electrctd_rgb = iu_actit("Electrocuted", electr_col)
 -- ==============================================================FINESSE
 local fns_col = Color[mod:get("finesse_text_colour")](255, true)
 local finesse_rgb = iu_actit("Finesse", fns_col)
@@ -62,6 +65,7 @@ local soulblaze_rgb = iu_actit("Soulblaze", slblz_col)
 local stgr_col = Color[mod:get("stagger_text_colour")](255, true)
 local stagger_rgb = iu_actit("Stagger", stgr_col)
 local staggered_rgb = iu_actit("Staggered", stgr_col)
+local staggerin_rgb = iu_actit("Staggering", stgr_col)
 -- ==============================================================STAMINA
 local stam_col = Color[mod:get("stamina_text_colour")](255, true)
 local stamina_rgb = iu_actit("Stamina", stam_col)
@@ -90,7 +94,12 @@ local var_col = Color[mod:get("variables_text_colour")](255, true)
 local stam_var_rgb = iu_actit("{stamina:%s}", var_col)
 local dmg_var_rgb = iu_actit("{damage:%s}", var_col)
 local p_dmg_var_rgb = iu_actit("+{damage:%s}", var_col)
+local p_damage_near_var_rgb = iu_actit("+{damage_near:%s}", var_col)
+local p_hdmg_var_rgb = iu_actit("+{heavy_damage:%s}", var_col)
 local p_dmg_close_var_rgb = iu_actit("+{close_damage:%s}", var_col)
+local p_dmgvspprsd_var_rgb = iu_actit("+{damage_vs_suppressed}", var_col)
+local p_dmgvsstgr_var_rgb = iu_actit("+{vs_stagger:%s}", var_col)
+local p_dmgvogrmon_var_rgb = iu_actit("+{dmg_vs_ogryn_monster:%s}", var_col)
 local impact_var_rgb = iu_actit("{impact:%s}", var_col)
 local p_impact_var_rgb = iu_actit("+{impact:%s}", var_col)
 local p_impact_modif_var_rgb = iu_actit("+{impact_modifier:%s}", var_col)
@@ -104,6 +113,7 @@ local p_cleave_var_rgb = iu_actit("+{cleave:%s}", var_col)
 local p_hit_mass_var_rgb = iu_actit("+{hit_mass:%s}", var_col)
 local hit_mass_var_rgb = iu_actit("-{hit_mass:%s}", var_col)
 local p_crit_var_rgb = iu_actit("+{crit_chance:%s}", var_col)
+local p_crit_dmg_var_rgb = iu_actit("+{crit_damage:%s}", var_col)
 local p_crit_wksp_dmg_var_rgb = iu_actit("+{crit_weakspot_damage:%s}", var_col)
 local crit_var_rgb = iu_actit("{crit_chance:%s}", var_col)
 local crit_chance_max_var_rgb = iu_actit("{crit_chance_max:%s}", var_col)
@@ -126,18 +136,22 @@ local range_var_rgb = iu_actit("{range:%s}", var_col)
 local value_var_rgb = iu_actit("{value:%s}", var_col)
 local ammo_var_rgb = iu_actit("{ammo:%s}", var_col)
 local p_spprsn_var_rgb = iu_actit("+{suppression:%s}", var_col)
-local p_dmgvspprsd_var_rgb = iu_actit("+{damage_vs_suppressed}", var_col)
 local pwr_var_rgb = iu_actit("+{power:%s}", var_col)
 local m_recoil_red_var_rgb = iu_actit("-{recoil_reduction:%s}", var_col)
+local reduction_var_rgb = iu_actit("{reduction:%s}", var_col)
 local p_reload_var_rgb = iu_actit("+{reload_speed:%s}", var_col)
 local p_extra_hits_var_rgb = iu_actit("+{extra_hits:%s}", var_col)
 local charge_spd_var_rgb = iu_actit("+{charge_speed:%s}", var_col)
 local p_tghns_var_rgb = iu_actit("+{toughness:%s}", var_col)
 local tghns_var_rgb = iu_actit("{toughness:%s}", var_col)
 local stgr_var_rgb = iu_actit("{stagger:%s}", var_col)
+local p_stgr_var_rgb = iu_actit("+{stagger:%s}", var_col)
 local stgr_red_var_rgb = iu_actit("{stagger_reduction:%s}", var_col)
 local bullet_am_var_rgb = iu_actit("{bullet_amount:%s}", var_col)
 local hit_var_rgb = iu_actit("{hit:%s}", var_col)
+local duration_var_rgb = iu_actit("{duration:%s}", var_col)
+local chance_var_rgb = iu_actit("{chance:%s}", var_col)
+local p_radius_var_rgb = iu_actit("+{radius:%s}", var_col)
 
 mod.localization_templates = {
 -- Fixes and overhauls by xsSplater
@@ -249,7 +263,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_23_desc_ext_en", -- Brutal Momentum
 	loc_keys = {"loc_trait_bespoke_infinite_cleave_on_weakspot_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_wksp_dmg_var_rgb.." "..weakspot_dmg_rgb..". "..weakspot_rgb.." Kills also ignore Enemy "..hit_mass_rgb.." and thereby receives infinite "..cleave_rgb.."." end}, -- colors
+	return p_wksp_dmg_var_rgb.." "..weakspot_dmg_rgb..". "..weakspot_rgb.." Kills also ignore "..hit_mass_rgb.." of all enemies except Ogryns, and thereby receives infinite "..cleave_rgb.."." end}, -- colors
 {	id = "trait_bespoke_24_desc_ext_en", -- Limbsplitter
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_first_attack_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -304,6 +318,24 @@ mod.localization_templates = {
 	loc_keys = {"loc_trait_bespoke_heavy_chained_hits_increases_killing_blow_chance_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
 	return p_proc_chance_var_rgb.." to Instakill human-sized enemies on Chained Heavy Hit. Stacks "..stacks_var_rgb.." times." end}, -- colors
+
+{	id = "trait_bespoke_36_1_desc_ext_en", -- Opportunist
+	loc_keys = {"loc_trait_bespoke_armor_penetration_against_staggered_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return p_rending_var_rgb.." "..rending_rgb.." vs Staggered Enemies." end},
+{	id = "trait_bespoke_36_2_desc_ext_en", -- Lightning Reflexes
+	loc_keys = {"loc_trait_bespoke_block_has_chance_to_stun_variant_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return "Timed Blocking Stuns the attacker, and grants you "..p_pwr_lvl_var_rgb.." Melee "..power_rgb.." for {#color(222, 188, 122)}3{#reset()} seconds." end}, -- "..duration_var_rgb.." = {duration:%s} == 3s
+{	id = "trait_bespoke_36_3_desc_ext_en", -- Overwhelming Force
+	loc_keys = {"loc_trait_bespoke_staggering_hits_has_chance_to_stun_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return staggerin_rgb.." an Enemy has a "..chance_var_rgb.." Chance to Stun the enemy. Cooldown {#color(222, 188, 122)}3.5{#reset()} seconds." end}, -- "..cd_var_rgb.." = {cooldown:%s} == 3.5s
+{	id = "trait_bespoke_36_4_desc_ext_en", -- High Voltage
+	loc_keys = {"loc_trait_bespoke_damage_bonus_vs_electrocuted_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return p_dmg_var_rgb.." "..damage_rgb.." vs "..electrctd_rgb.."." end},
+
 -- ____________________________________________________Ranged
 -- ____________________________________________________Force Staff - Surge
 {	id = "trait_bespoke_37_desc_ext_en", -- Warp Flurry
@@ -318,6 +350,15 @@ mod.localization_templates = {
 	loc_keys = {"loc_trait_bespoke_increased_crit_chance_scaled_on_peril_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
 	return "Gain between "..crit_var_rgb.." and "..crit_chance_max_var_rgb.." "..crit_chance_rgb.." based on current level of "..peril_rgb.."." end}, -- colors
+
+{	id = "trait_bespoke_40_desc_ext_en", -- Focused Channelling
+	loc_keys = {"loc_trait_bespoke_uninterruptable_while_charging_and_movement_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return "Your Secondary Attack cannot be interrupted and loses "..reduction_var_rgb.." of Secondary Attack Movement Speed penalties." end},
+{	id = "trait_bespoke_41_desc_ext_en", -- Run 'n' Gun
+	loc_keys = {"loc_trait_bespoke_allow_hipfire_while_sprinting_and_bonus_stats_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return "You can Hipfire with this weapon while Sprinting. "..p_damage_near_var_rgb.." Close "..damage_rgb.." while Sprinting." end}, -- colors
 -- ____________________________________________________Force Staff - Trauma
 {	id = "trait_bespoke_42_desc_ext_en", -- Rending Shockwave
 	loc_keys = {"loc_trait_bespoke_rend_armor_on_aoe_charge_desc",},
@@ -334,11 +375,11 @@ mod.localization_templates = {
 {	id = "trait_bespoke_45_desc_ext_en", -- Blazing Spirit
 	loc_keys = {"loc_trait_bespoke_warpfire_burn_on_crit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Enemy gains "..stacks_var_rgb.." Stacks of "..soulblaze_rgb.." on "..crit_hit_rgb..". Up to {#color(255, 255, 140)}6{#reset()} Stacks." end}, -- colors Note!
+	return "Enemy gains "..stacks_var_rgb.." Stacks of "..soulblaze_rgb.." on "..crit_hit_rgb..". Up to {#color(222, 188, 122)}6{#reset()} Stacks." end}, -- colors Note!
 {	id = "trait_bespoke_46_desc_ext_en", -- Surge
-	loc_keys = {"loc_trait_bespoke_double_shot_on_crit_desc",},
+	loc_keys = {"loc_trait_bespoke_double_shot_on_crit_and_crit_chance_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return value_var_rgb.." Shots on "..crit_hit_rgb.."."..trauma_note_rgb end}, -- colors Note!
+	return value_var_rgb.." Shots on "..crit_hit_rgb..". "..p_crit_var_rgb.." Ranged "..crit_chance_rgb.."." end}, -- colors Note!
 -- ____________________________________________________Shredder Autopistol
 {	id = "trait_bespoke_47_desc_ext_en", -- Raking Fire
 	loc_keys = {"loc_trait_bespoke_allow_flanking_and_increased_damage_when_flanking_desc",},
@@ -462,6 +503,25 @@ mod.localization_templates = {
 	loc_keys = {"loc_trait_bespoke_toughness_on_elite_kills_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
 	return p_tghns_var_rgb.." "..toughness_rgb.." on Elite Kill." end}, -- colors
+--____________________________________________________Godwyn-Branx Pattern Bolt Pistol
+{	id = "trait_bespoke_74_1_desc_ext_en", -- Puncture
+	loc_keys = {"loc_trait_bespoke_bleed_on_ranged_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return "Ranged hits add "..stacks_var_rgb.." Stacks of "..bleed_rgb.." to enemies." end},
+{	id = "trait_bespoke_74_2_desc_ext_en", -- Execution
+	loc_keys = {"loc_trait_bespoke_damage_vs_stagger_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return p_dmgvsstgr_var_rgb.." "..damage_rgb.." vs "..staggered_rgb.." enemies." end},
+{	id = "trait_bespoke_74_3_desc_ext_en", -- Lethal Proximity
+	loc_keys = {"loc_trait_bespoke_close_explosion_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return "Near shots also causes an Explosion. In addition, the Explosion Radius is increased by "..p_radius_var_rgb.."." end},
+
+--____________________________________________________Ironhelm "Hacker" Mk IV Assault Shotgun
+{	id = "trait_bespoke_74_4_desc_ext_en", -- Both Barrels
+	loc_keys = {"loc_trait_bespoke_reload_speed_on_ranged_weapon_special_kill_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return "Killing an enemy by firing both barrels makes your next Reload "..p_reload_var_rgb.." faster." end},
 
 -- ==================================================ZEALOT
 -- ____________________________________________________Thunder Hammer
@@ -479,9 +539,9 @@ mod.localization_templates = {
 	return "Hitting at least "..mult_hit_var_rgb.." enemies with an attack, restores "..tghns_var_rgb.." "..toughness_rgb.."." end}, -- colors
 -- ____________________________________________________Turtolsky Heavy Sword
 {	id = "trait_bespoke_77_desc_ext_en", -- Perfect Strike
-	loc_keys = {"loc_trait_bespoke_pass_past_armor_on_crit_desc",},
+	loc_keys = {"loc_trait_bespoke_pass_past_armor_on_crit_new_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return crit_hits_rgb.." ignore "..hit_mass_rgb.." Bonus from Armour." end}, -- colors
+	return crit_hits_rgb.." ignore "..hit_mass_rgb.." Bonus from Armour. "..p_crit_dmg_var_rgb.." Melee "..crit_hit_rgb.." "..damage_rgb.."." end}, -- colors
 {	id = "trait_bespoke_78_desc_ext_en", -- Deathblow
 	loc_keys = {"loc_trait_bespoke_infinite_melee_cleave_on_weakspot_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -496,9 +556,9 @@ mod.localization_templates = {
 	locales = {"en",}, handle_func = function(locale, value)
 	return p_crit_var_rgb.." "..crit_chance_rgb.." for each Enemy Hit by your previous attack. Stacks "..stacks_var_rgb.." times." end}, -- colors
 {	id = "trait_bespoke_81_desc_ext_en", -- Man-Stopper
-	loc_keys = {"loc_trait_bespoke_cleave_on_crit_desc",},
+	loc_keys = {"loc_trait_bespoke_cleave_on_crit_and_stagger_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Increased "..cleave_rgb.." on "..crit_hit_rgb.."." end}, -- colors
+	return "Increased "..cleave_rgb.." on "..crit_hit_rgb.." and gain "..p_stgr_var_rgb.." Ranged Attack "..stagger_rgb.."." end}, -- colors
 {	id = "trait_bespoke_82_desc_ext_en", -- Full Bore
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_hitting_single_enemy_with_all_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -538,9 +598,9 @@ mod.localization_templates = {
 	locales = {"en",}, handle_func = function(locale, value)
 	return p_extra_hits_var_rgb.." Extra Chained Energised Hits." end}, -- colors
 {	id = "trait_bespoke_90_desc_ext_en", -- Sunder
-	loc_keys = {"loc_trait_bespoke_infinite_armor_cleave_on_activated_attacks_desc",},
+	loc_keys = {"loc_trait_bespoke_infinite_armor_cleave_on_activated_attacks_and_heavy_damage_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Your Energised Attacks have increased "..cleave_rgb.."." end}, -- colors
+	return "Increased "..cleave_rgb.." and "..p_hdmg_var_rgb.." Heavy Melee Attack "..damage_rgb.." on Energised Attacks." end}, -- colors
 -- ____________________________________________________Ranged
 -- ____________________________________________________Plasma Gun
 {	id = "trait_bespoke_91_desc_ext_en", -- Volatile
@@ -577,6 +637,17 @@ mod.localization_templates = {
 	loc_keys = {"loc_trait_bespoke_pass_past_armor_on_heavy_attack_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
 	return "Fully Charged Heavy Attacks ignore Enemy "..hit_mass_rgb.."." end}, -- colors
+
+--____________________________________________________Pickaxes
+	{	id = "trait_bespoke_97_1_desc_ext_en", -- Torment
+	loc_keys = {"loc_trait_bespoke_increase_power_on_weapon_special_hit_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return p_pwr_lvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Weapon Special Hit." end},
+	{	id = "trait_bespoke_97_2_desc_ext_en", -- Slow and Steady
+	loc_keys = {"loc_trait_bespoke_toughness_on_hit_based_on_charge_time_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return "Recover up to "..tghns_var_rgb.." Max "..toughness_rgb.." based on the charge time of your heavy attacks." end},
+
 -- ____________________________________________________Ranged
 -- ____________________________________________________Twin-Linked Heavy Stubber
 {	id = "trait_bespoke_98_desc_ext_en", -- Charmed Reload
@@ -610,6 +681,10 @@ mod.localization_templates = {
 	loc_keys = {"loc_trait_bespoke_pass_trough_armor_on_weapon_special_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
 	return "Special Attacks ignore "..hit_mass_rgb.." Bonus from Armour." end}, -- colors
+{	id = "trait_bespoke_105_desc_ext_en", -- Adhesive Charge
+	loc_keys = {"loc_trait_bespoke_grenades_stick_to_monsters_and_damage_desc",},
+	locales = {"en",}, handle_func = function(locale, value)
+	return "Your Grenades stick to Ogryns and Monstrosities. "..p_dmgvogrmon_var_rgb.." "..damage_rgb.." vs Ogryns and Monstrosities." end},
 -- ____________________________________________________Kickback
 {	id = "trait_bespoke_106_desc_ext_en", -- Expansive
 	loc_keys = {"loc_trait_bespoke_weapon_special_power_bonus_after_one_shots_desc",},
@@ -618,7 +693,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_107_desc_ext_en", -- Punishing Fire
 	loc_keys = {"loc_trait_bespoke_shot_power_bonus_after_weapon_special_cleave_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." Bonus on your ranged attack for "..time_var_rgb.." seconds after ñleaving through several enemies with your weapon's Special attack."..pwr_note_rgb end}, -- colors
+	return p_pwr_lvl_var_rgb.." "..power_rgb.." Bonus on your ranged attack for "..time_var_rgb.." seconds after cleaving through several enemies with your weapon's Special attack."..pwr_note_rgb end}, -- colors
 --____________________________________________________Grenadier Gauntlet
 {	id = "trait_bespoke_108_desc_ext_en", -- Reassuringly Accurate
 	loc_keys = {"loc_trait_bespoke_toughness_on_crit_kills_desc",},

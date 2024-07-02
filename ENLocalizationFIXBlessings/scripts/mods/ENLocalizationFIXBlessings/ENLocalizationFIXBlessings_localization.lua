@@ -27,6 +27,9 @@ local localizations = {
 	damage_colour = {
 		en = "Damage",
 	},
+	electrocuted_colour = {
+		en = "Electrocuted",
+	},
 	finesse_colour = {
 		en = "Finesse",
 	},
@@ -101,6 +104,7 @@ addLocalisation(localizations, "burn")
 addLocalisation(localizations, "cleave")
 addLocalisation(localizations, "crit")
 addLocalisation(localizations, "damage")
+addLocalisation(localizations, "electrocuted")
 addLocalisation(localizations, "finesse")
 addLocalisation(localizations, "hit_mass")
 addLocalisation(localizations, "impact")
