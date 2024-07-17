@@ -398,7 +398,7 @@ mod.localization_templates = {
 	{	id = "trait_bespoke_50_desc_ext_en", -- Speedload
 	loc_keys = {"loc_trait_bespoke_reload_speed_on_slide_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_reload_var_rgb.." Reload Speed for "..time_var_rgb.." seconds after Kill at a distance of up to {#color(255, 255, 140)}7{#reset()} meters. Stacks "..stacks_var_rgb.." times." end}, -- rewrite colors Note!
+	return p_reload_var_rgb.." Reload Speed for "..time_var_rgb.." seconds after Kill at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters. Stacks "..stacks_var_rgb.." times." end}, -- rewrite colors Note!
 {	id = "trait_bespoke_51_desc_ext_en", -- Pinning Fire
 	loc_keys = {"loc_trait_bespoke_stacking_power_bonus_on_staggering_enemies_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -456,11 +456,11 @@ mod.localization_templates = {
 {	id = "trait_bespoke_64_desc_ext_en", -- Fire Frenzy
 	loc_keys = {"loc_trait_bespoke_increase_close_damage_on_close_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "You gain "..p_dmg_close_var_rgb.." "..damage_rgb.." for "..time_var_rgb.." seconds after killing an enemy at a distance of up to {#color(255, 255, 140)}7{#reset()} meters. Stacks "..stacks_var_rgb.." times." end}, -- colors Note!
+	return "You gain "..p_dmg_close_var_rgb.." "..damage_rgb.." for "..time_var_rgb.." seconds after killing an enemy at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters. Stacks "..stacks_var_rgb.." times." end}, -- colors Note!
 {	id = "trait_bespoke_65_desc_ext_en", -- Deathspitter
 	loc_keys = {"loc_trait_bespoke_increase_power_on_close_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." on Kill at a distance of up to {#color(255, 255, 140)}7{#reset()} meters for "..time_var_rgb.." seconds. Stacks {#color(255, 255, 140)}5{#reset()} times."..pwr_note_rgb end}, -- colors Note!
+	return p_pwr_lvl_var_rgb.." "..power_rgb.." on Kill at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters for "..time_var_rgb.." seconds. Stacks {#color(255, 255, 140)}5{#reset()} times."..pwr_note_rgb end}, -- colors Note!
 {	id = "trait_bespoke_66_ext_en", -- Hit & Run
 	loc_keys = {"loc_trait_bespoke_count_as_dodge_vs_ranged_on_close_kill",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -468,7 +468,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_66_desc_ext_en", -- Hit & Run
 	loc_keys = {"loc_trait_bespoke_count_as_dodge_vs_ranged_on_close_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Immune to Ranged Attacks for "..time_var_rgb.." seconds on Kill at a distance of up to {#color(255, 255, 140)}7{#reset()} meters." end}, -- colors s->second
+	return "Immune to Ranged Attacks for "..time_var_rgb.." seconds on Kill at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters." end}, -- colors s->second
 {	id = "trait_bespoke_67_desc_ext_en", -- Dumdum
 	loc_keys = {"loc_trait_bespoke_consecutive_hits_increases_close_damage_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -675,7 +675,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_103_desc_ext_en", -- Born in blood
 	loc_keys = {"loc_trait_bespoke_toughness_on_close_range_kills_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_tghns_var_rgb.." "..toughness_rgb.." on Kill at a distance of up to {#color(255, 255, 140)}7{#reset()} meters." end}, -- colors
+	return p_tghns_var_rgb.." "..toughness_rgb.." on Kill at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters." end}, -- colors
 --____________________________________________________Rumbler
 {	id = "trait_bespoke_104_desc_ext_en", -- Pierce
 	loc_keys = {"loc_trait_bespoke_pass_trough_armor_on_weapon_special_desc",},

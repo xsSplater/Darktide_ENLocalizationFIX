@@ -73,6 +73,7 @@ mod.localization_templates = {
 	locales = {"en",},
 	handle_func = function(locale, value)
 	return p_max_toughness_rgb .. " " .. toughness_rgb end},
+
 -- ____________________________________________________Traits
 {	id = "curio_traits0_ext_en",
 	loc_keys = {"loc_gadget_cooldown_desc",},
