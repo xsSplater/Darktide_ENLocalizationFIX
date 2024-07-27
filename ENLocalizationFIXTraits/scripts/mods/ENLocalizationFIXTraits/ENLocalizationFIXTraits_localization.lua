@@ -6,7 +6,7 @@ local localizations = {
 		en = "Enhanced Descriptions - Perks",
 	},
 	mod_description = {
-		en = "Enhanced Descriptions - fixes and additions to game descriptions. A module with Weapon Perks.\nIf you enable this module together with the main ENLocalizationFIX mod, then will work the edits of the mod that is in the list above. {#color(255, 54, 54)}It's better not to do this to avoid glitches and crashes!{#reset()}",
+		en = "Enhanced Descriptions - fixes and additions to game descriptions. A module with Weapon Perks.\nIf you enable this module together with the main ENLocalizationFIXAIO mod, then will work the edits of the mod that is in the list below. {#color(255, 54, 54)}It's better not to do this to avoid glitches and crashes!{#reset()}",
 	},
 
 	crit_colour = {

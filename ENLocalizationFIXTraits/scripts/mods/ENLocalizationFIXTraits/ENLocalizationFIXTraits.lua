@@ -20,7 +20,7 @@ local stamina_rgb = iu_actit("Stamina", stam_col)
 -- ==============================================================WEAK SPOT
 local wksp_col = Color[mod:get("weakspot_text_colour")](255, true)
 local weakspot_dmg_rgb = iu_actit("Weakspot Damage", wksp_col)
--- ==============================================================VARIABLES - оепелеммше
+-- ==============================================================VARIABLES
 local var_col = Color[mod:get("variables_text_colour")](255, true)
 local p_dmg_var_rgb = iu_actit("+{damage:%s}", var_col)
 local p_crit_var_rgb = iu_actit("+{crit_chance:%s}", var_col)
@@ -45,148 +45,149 @@ mod.localization_templates = {
 	loc_keys = {"loc_trait_melee_common_wield_increased_armored_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Flak Armoured Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Flak Armoured Enemies" end},
 {	id = "weap_bb1_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increased_berserker_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Maniacs" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Maniacs" end},
 {	id = "weap_bb2_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increased_disgustingly_resilient_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Infested Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Infested Enemies" end},
 {	id = "weap_bb3_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increased_resistant_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Unyielding Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Unyielding Enemies" end},
 {	id = "weap_bb4_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increased_super_armor_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Carapace Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Carapace Enemies" end},
 {	id = "weap_bb5_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increased_unarmored_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Unarmoured Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Unarmoured Enemies" end},
 {	id = "weap_bb6_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increase_critical_hit_chance_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_crit_var_rgb .. " Melee " .. crit_chance_rgb end},
+	return p_crit_var_rgb.." Melee "..crit_chance_rgb end},
 {	id = "weap_bb7_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_wield_increase_critical_strike_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_crit_dmg_var_rgb .. " Melee " .. crit_hit_color_rgb end},
+	return p_crit_dmg_var_rgb.." Melee "..crit_hit_color_rgb end},
 {	id = "weap_bb8_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increase_horde_enemy_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " Melee " .. damage_rgb .. " vs Groaners and Poxwalkers" end},
+	return p_dmg_var_rgb.." Melee "..damage_rgb.." vs Groaners and Poxwalkers" end},
 {	id = "weap_bb9_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increase_elite_enemy_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " Melee " .. damage_rgb .. " vs Elites" end},
+	return p_dmg_var_rgb.." Melee "..damage_rgb.." vs Elites" end},
 {	id = "weap_bb10_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increase_special_enemy_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " Melee " .. damage_rgb .. " vs Specialists" end},
+	return p_dmg_var_rgb.." Melee "..damage_rgb.." vs Specialists" end},
 {	id = "weap_bb11_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increase_stamina_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_stam_var_rgb .. " " .. stamina_rgb end},
+	return p_stam_var_rgb.." "..stamina_rgb end},
 {	id = "weap_bb12_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_increase_weakspot_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_wksp_dmg_var_rgb .. " Melee " .. weakspot_dmg_rgb end},
+	return p_wksp_dmg_var_rgb.." Melee "..weakspot_dmg_rgb end},
 {	id = "weap_bb13_ext_en",
 	loc_keys = {"loc_trait_melee_common_wield_reduce_block_cost_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_rbc_rgb .. " Block Efficiency" end},
+	return p_rbc_rgb.." Block Efficiency" end},
 {	id = "weap_bb14_ext_en",
 	loc_keys = {"loc_gadget_sprint_cost_reduction_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return m_bcm_rgb .. " " .. stamina_rgb .. " Cost for Sprinting" end},
+	return m_bcm_rgb.." "..stamina_rgb.." Cost for Sprinting" end},
+
 -- ____________________________________________________Ranged
 {	id = "weap_db0_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_armored_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Flak Armoured Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Flak Armoured Enemies" end},
 {	id = "weap_db1_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_berserker_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Maniacs" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Maniacs" end},
 {	id = "weap_db2_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_disgustinglyresilient_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Infested Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Infested Enemies" end},
 {	id = "weap_db3_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_resistant_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Unyielding Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Unyielding Enemies" end},
 {	id = "weap_db4_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_superarmor_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Carapace Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Carapace Enemies" end},
 {	id = "weap_db5_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_unarmored_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " " .. damage_rgb .. " vs Unarmoured Enemies" end},
+	return p_dmg_var_rgb.." "..damage_rgb.." vs Unarmoured Enemies" end},
 {	id = "weap_db6_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_increase_crit_chance_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_crit_var_rgb .. " Ranged " .. crit_chance_r_rgb end},
+	return p_crit_var_rgb.." Ranged "..crit_chance_r_rgb end},
 {	id = "weap_db7_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_wield_increase_critical_strike_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_crit_dmg_var_rgb .. " Ranged " .. crit_hit_color_rgb end},
+	return p_crit_dmg_var_rgb.." Ranged "..crit_hit_color_rgb end},
 {	id = "weap_db8_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_increase_elite_enemy_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " Ranged " .. damage_rgb .. " vs Elites" end},
+	return p_dmg_var_rgb.." Ranged "..damage_rgb.." vs Elites" end},
 {	id = "weap_db9_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_increase_horde_enemy_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " Ranged " .. damage_rgb .. " vs Groaners and Poxwalkers" end},
+	return p_dmg_var_rgb.." Ranged "..damage_rgb.." vs Groaners and Poxwalkers" end},
 {	id = "weap_db10_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_increase_special_enemy_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_dmg_var_rgb .. " Ranged " .. damage_rgb .. " vs Specialists" end},
+	return p_dmg_var_rgb.." Ranged "..damage_rgb.." vs Specialists" end},
 {	id = "weap_db11_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_increase_stamina_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_stam_var_rgb .. " " .. stamina_rgb .. " when Weapon is Active" end},
+	return p_stam_var_rgb.." "..stamina_rgb.." when Weapon is Active" end},
 {	id = "weap_db12_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_increase_weakspot_damage_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_wksp_dmg_var_rgb .. " Ranged " .. weakspot_dmg_rgb end},
+	return p_wksp_dmg_var_rgb.." Ranged "..weakspot_dmg_rgb end},
 {	id = "weap_db13_ext_en",
 	loc_keys = {"loc_trait_ranged_common_wield_increase_reload_speed_desc",},
 	locales = {"en",},
 	handle_func = function(locale, value)
-	return p_reload_var_rgb .. " Reload Speed" end},
+	return p_reload_var_rgb.." Reload Speed" end},
 
 -- FOR TESTS ONLY!!!
 -- {id = "weap_testum00", loc_keys = {"",}, locales = {"en",}, handle_func = function(locale, value) return string.gsub(value, "{", "(") end,},

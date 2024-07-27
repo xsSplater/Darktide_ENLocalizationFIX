@@ -7,7 +7,6 @@ local InputUtils = require("scripts/managers/input/input_utils")
 mod:hook_safe(CLASS.InventoryWeaponsView, "on_enter", function (self)
 	self._widgets_by_name.equip_button.offset = {-622,20,0}
 end)
-
 mod:hook_safe(CLASS.MarksVendorView, "on_enter", function (self)
 	self._widgets_by_name.purchase_button.offset = {-622,20,0}
 end)
@@ -65,7 +64,7 @@ local soulblaze_rgb = iu_actit("Soulblaze", slblz_col)
 local stgr_col = Color[mod:get("stagger_text_colour")](255, true)
 local stagger_rgb = iu_actit("Stagger", stgr_col)
 local staggered_rgb = iu_actit("Staggered", stgr_col)
-local staggerin_rgb = iu_actit("Staggering", stgr_col)
+local staggering_rgb = iu_actit("Staggering", stgr_col)
 -- ==============================================================STAMINA
 local stam_col = Color[mod:get("stamina_text_colour")](255, true)
 local stamina_rgb = iu_actit("Stamina", stam_col)
@@ -91,67 +90,69 @@ local dmg_x_2_5_note_rgb = iu_actit(" *Actually Damage is x2.5 higher.", note_co
 local fire_n_trap_note_rgb = iu_actit(" Doesn't save you from Flamers and Trappers.", note_col)
 -- ==============================================================VARIABLES
 local var_col = Color[mod:get("variables_text_colour")](255, true)
-local stam_var_rgb = iu_actit("{stamina:%s}", var_col)
+local ammo_var_rgb = iu_actit("{ammo:%s}", var_col)
+local blck_var_rgb = iu_actit("{block_cost:%s}", var_col)
+local blltam_var_rgb = iu_actit("{bullet_amount:%s}", var_col)
+local chnc_var_rgb = iu_actit("{chance:%s}", var_col)
+local chrgtime_var_rgb = iu_actit("{charge_time:%s}", var_col)
+local cd_var_rgb = iu_actit("{cooldown:%s}", var_col)
+local cleave_var_rgb = iu_actit("{cleave:%s}", var_col)
+local crit_var_rgb = iu_actit("{crit_chance:%s}", var_col)
+local critchmax_var_rgb = iu_actit("{crit_chance_max:%s}", var_col)
 local dmg_var_rgb = iu_actit("{damage:%s}", var_col)
+local dur_var_rgb = iu_actit("{duration:%s}", var_col)
+local hit_var_rgb = iu_actit("{hit:%s}", var_col)
+local impact_var_rgb = iu_actit("{impact:%s}", var_col)
+local maxstks_var_rgb = iu_actit("{max_stacks:%s}", var_col)
+local mult_hit_var_rgb = iu_actit("{multiple_hit:%s}", var_col)
+local procch_var_rgb = iu_actit("{proc_chance:%s}", var_col)
+local red_var_rgb = iu_actit("{reduction:%s}", var_col)
+local range_var_rgb = iu_actit("{range:%s}", var_col)
+local rend_var_rgb = iu_actit("{rend:%s}", var_col)
+local stacks_var_rgb = iu_actit("{stacks:%s}", var_col)
+local stgr_var_rgb = iu_actit("{stagger:%s}", var_col)
+local stgrrdct_var_rgb = iu_actit("{stagger_reduction:%s}", var_col)
+local stam_var_rgb = iu_actit("{stamina:%s}", var_col)
+local time_var_rgb = iu_actit("{time:%s}", var_col)
+local tghns_var_rgb = iu_actit("{toughness:%s}", var_col)
+local value_var_rgb = iu_actit("{value:%s}", var_col)
+local warpchrg_var_rgb = iu_actit("{warp_charge:%s}", var_col)
+
+local p_chrgspd_var_rgb = iu_actit("+{charge_speed:%s}", var_col)
+local p_dmgcls_var_rgb = iu_actit("+{close_damage:%s}", var_col)
+local p_clv_var_rgb = iu_actit("+{cleave:%s}", var_col)
+local p_crit_var_rgb = iu_actit("+{crit_chance:%s}", var_col)
+local p_critdmg_var_rgb = iu_actit("+{crit_damage:%s}", var_col)
+local p_critwkspdmg_var_rgb = iu_actit("+{crit_weakspot_damage:%s}", var_col)
 local p_dmg_var_rgb = iu_actit("+{damage:%s}", var_col)
-local p_damage_near_var_rgb = iu_actit("+{damage_near:%s}", var_col)
-local p_hdmg_var_rgb = iu_actit("+{heavy_damage:%s}", var_col)
-local p_dmg_close_var_rgb = iu_actit("+{close_damage:%s}", var_col)
-local p_dmgvspprsd_var_rgb = iu_actit("+{damage_vs_suppressed}", var_col)
+local p_dmgnr_var_rgb = iu_actit("+{damage_near:%s}", var_col)
+local p_xtrahits_var_rgb = iu_actit("+{extra_hits:%s}", var_col)
+local p_dmghvy_var_rgb = iu_actit("+{heavy_damage:%s}", var_col)
+local p_hitmass_var_rgb = iu_actit("+{hit_mass:%s}", var_col)
+local p_dmgvsprsd_var_rgb = iu_actit("+{damage_vs_suppressed}", var_col)
 local p_dmgvsstgr_var_rgb = iu_actit("+{vs_stagger:%s}", var_col)
 local p_dmgvogrmon_var_rgb = iu_actit("+{dmg_vs_ogryn_monster:%s}", var_col)
-local impact_var_rgb = iu_actit("{impact:%s}", var_col)
-local p_impact_var_rgb = iu_actit("+{impact:%s}", var_col)
-local p_impact_modif_var_rgb = iu_actit("+{impact_modifier:%s}", var_col)
-local time_var_rgb = iu_actit("{time:%s}", var_col)
-local stacks_var_rgb = iu_actit("{stacks:%s}", var_col)
-local p_stacks_var_rgb = iu_actit("+{stacks:%s}", var_col)
-local max_stacks_var_rgb = iu_actit("{max_stacks:%s}", var_col)
-local mult_hit_var_rgb = iu_actit("{multiple_hit:%s}", var_col)
-local cleave_var_rgb = iu_actit("{cleave:%s}", var_col)
-local p_cleave_var_rgb = iu_actit("+{cleave:%s}", var_col)
-local p_hit_mass_var_rgb = iu_actit("+{hit_mass:%s}", var_col)
-local hit_mass_var_rgb = iu_actit("-{hit_mass:%s}", var_col)
-local p_crit_var_rgb = iu_actit("+{crit_chance:%s}", var_col)
-local p_crit_dmg_var_rgb = iu_actit("+{crit_damage:%s}", var_col)
-local p_crit_wksp_dmg_var_rgb = iu_actit("+{crit_weakspot_damage:%s}", var_col)
-local crit_var_rgb = iu_actit("{crit_chance:%s}", var_col)
-local crit_chance_max_var_rgb = iu_actit("{crit_chance_max:%s}", var_col)
-local warp_charge_var_rgb = iu_actit("{warp_charge:%s}", var_col)
-local block_cost_var_rgb = iu_actit("{block_cost:%s}", var_col)
-local p_rending_var_rgb = iu_actit("+{rending:%s}", var_col)
-local p_rend_var_rgb = iu_actit("+{rend:%s}", var_col)
-local rend_var_rgb = iu_actit("{rend:%s}", var_col)
-local p_rending2_var_rgb = iu_actit("2.{rending:%s}", var_col) -- 2.5!
-local p_pwr_lvl_var_rgb = iu_actit("+{power_level:%s}", var_col)
-local p_mov_spd_var_rgb = iu_actit("+{movement_speed:%s}", var_col)
-local mov_spd_var_rgb = iu_actit("-{movement_speed:%s}", var_col)
-local p_wksp_dmg_var_rgb = iu_actit("+{weakspot_damage:%s}", var_col)
 local p_fin_var_rgb = iu_actit("+{finesse:%s}", var_col)
-local p_proc_chance_var_rgb = iu_actit("+{proc_chance:%s}", var_col)
-local proc_chance_var_rgb = iu_actit("{proc_chance:%s}", var_col)
-local cd_var_rgb = iu_actit("{cooldown:%s}", var_col)
-local charge_time_var_rgb = iu_actit("{charge_time:%s}", var_col)
-local range_var_rgb = iu_actit("{range:%s}", var_col)
-local value_var_rgb = iu_actit("{value:%s}", var_col)
-local ammo_var_rgb = iu_actit("{ammo:%s}", var_col)
-local p_spprsn_var_rgb = iu_actit("+{suppression:%s}", var_col)
-local pwr_var_rgb = iu_actit("+{power:%s}", var_col)
-local m_recoil_red_var_rgb = iu_actit("-{recoil_reduction:%s}", var_col)
-local reduction_var_rgb = iu_actit("{reduction:%s}", var_col)
-local p_reload_var_rgb = iu_actit("+{reload_speed:%s}", var_col)
-local p_extra_hits_var_rgb = iu_actit("+{extra_hits:%s}", var_col)
-local charge_spd_var_rgb = iu_actit("+{charge_speed:%s}", var_col)
-local p_tghns_var_rgb = iu_actit("+{toughness:%s}", var_col)
-local tghns_var_rgb = iu_actit("{toughness:%s}", var_col)
-local stgr_var_rgb = iu_actit("{stagger:%s}", var_col)
-local p_stgr_var_rgb = iu_actit("+{stagger:%s}", var_col)
-local stgr_red_var_rgb = iu_actit("{stagger_reduction:%s}", var_col)
-local bullet_am_var_rgb = iu_actit("{bullet_amount:%s}", var_col)
-local hit_var_rgb = iu_actit("{hit:%s}", var_col)
-local duration_var_rgb = iu_actit("{duration:%s}", var_col)
-local chance_var_rgb = iu_actit("{chance:%s}", var_col)
+local p_imp_var_rgb = iu_actit("+{impact:%s}", var_col)
+local p_impmod_var_rgb = iu_actit("+{impact_modifier:%s}", var_col)
+local p_movspd_var_rgb = iu_actit("+{movement_speed:%s}", var_col)
 local p_radius_var_rgb = iu_actit("+{radius:%s}", var_col)
+local p_pwr_var_rgb = iu_actit("+{power:%s}", var_col)
+local p_pwrlvl_var_rgb = iu_actit("+{power_level:%s}", var_col)
+local p_procch_var_rgb = iu_actit("+{proc_chance:%s}", var_col)
+local p_reload_var_rgb = iu_actit("+{reload_speed:%s}", var_col)
+local p_rend_var_rgb = iu_actit("+{rend:%s}", var_col)
+local p_rending_var_rgb = iu_actit("+{rending:%s}", var_col)
+local p_rending2_var_rgb = iu_actit("2.{rending:%s}", var_col) -- 2.5!
+local p_stacks_var_rgb = iu_actit("+{stacks:%s}", var_col)
+local p_stgr_var_rgb = iu_actit("+{stagger:%s}", var_col)
+local p_spprsn_var_rgb = iu_actit("+{suppression:%s}", var_col)
+local p_tghns_var_rgb = iu_actit("+{toughness:%s}", var_col)
+local p_wkspdmg_var_rgb = iu_actit("+{weakspot_damage:%s}", var_col)
+
+local m_hitmass_var_rgb = iu_actit("-{hit_mass:%s}", var_col)
+local m_movspd_var_rgb = iu_actit("-{movement_speed:%s}", var_col)
+local m_recoil_red_var_rgb = iu_actit("-{recoil_reduction:%s}", var_col)
 
 mod.localization_templates = {
 -- Fixes and overhauls by xsSplater
@@ -168,7 +169,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_0_desc_ext_en", -- Trauma
 	loc_keys = {"loc_trait_bespoke_consecutive_hits_increases_stagger_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_impact_var_rgb.." "..impact_rgb.." for "..time_var_rgb.." seconds on Repeated Hit. Stacks "..stacks_var_rgb.." times. {#color(255, 255, 140)}+1{#reset()} Stack per Hit." end}, -- colors
+	return p_imp_var_rgb.." "..impact_rgb.." for "..time_var_rgb.." seconds on Repeated Hit. Stacks "..stacks_var_rgb.." times. {#color(255, 255, 140)}+1{#reset()} Stack per Hit." end}, -- colors
 {	id = "trait_bespoke_1_desc_ext_en", -- Savage Sweep
 	loc_keys = {"loc_trait_bespoke_increased_attack_cleave_on_multiple_hits_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -180,7 +181,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_3_desc_ext_en", -- Thunderstrike
 	loc_keys = {"loc_trait_bespoke_staggered_targets_receive_increased_stagger_debuff_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Target receives "..stacks_var_rgb.." Stacks of "..p_impact_var_rgb.." "..impact_rgb.." if already "..staggered_rgb..", to a maximum of {#color(255, 255, 140)}8{#reset()} Stacks. Lasts "..time_var_rgb.." seconds." end}, -- colors Note! -- hidden "to a maximum of 8 Stacks."
+	return "Target receives "..stacks_var_rgb.." Stacks of "..p_imp_var_rgb.." "..impact_rgb.." if already "..staggered_rgb..", to a maximum of {#color(255, 255, 140)}8{#reset()} Stacks. Lasts "..time_var_rgb.." seconds." end}, -- colors Note! -- hidden "to a maximum of 8 Stacks."
 {	id = "trait_bespoke_4_desc_ext_en", -- Rampage
 	loc_keys = {"loc_trait_bespoke_increased_melee_damage_on_multiple_hits_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -188,15 +189,15 @@ mod.localization_templates = {
 {	id = "trait_bespoke_5_desc_ext_en", -- Wrath
 	loc_keys = {"loc_trait_bespoke_chained_hits_increases_cleave_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_cleave_var_rgb.." "..cleave_rgb.." on Hit for {#color(255, 255, 140)}3.5{#reset()} seconds. Stacks "..stacks_var_rgb.." times." end}, -- colors Note! -- hidden "for 3.5 seconds"
+	return p_clv_var_rgb.." "..cleave_rgb.." on Hit for {#color(255, 255, 140)}3.5{#reset()} seconds. Stacks "..stacks_var_rgb.." times." end}, -- colors Note! -- hidden "for 3.5 seconds"
 {	id = "trait_bespoke_6_desc_ext_en", -- Hammerblow
 	loc_keys = {"loc_trait_bespoke_stacking_increase_impact_on_hit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_impact_var_rgb.." "..impact_rgb.." for {#color(255, 255, 140)}3.5{#reset()} seconds on Hit. Stacks "..stacks_var_rgb.." times. Up to {#color(255, 255, 140)}5{#reset()} Stacks per Hit." end}, -- colors s->seconds -- {time:%s}=1.5 -> 3.5!!!
+	return p_imp_var_rgb.." "..impact_rgb.." for {#color(255, 255, 140)}3.5{#reset()} seconds on Hit. Stacks "..stacks_var_rgb.." times. Up to {#color(255, 255, 140)}5{#reset()} Stacks per Hit." end}, -- colors s->seconds -- {time:%s}=1.5 -> 3.5!!!
 {	id = "trait_bespoke_7_desc_ext_en", -- Devastating Strike
 	loc_keys = {"loc_trait_bespoke_infinite_melee_cleave_on_crit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_hit_mass_var_rgb.." "..cleave_rgb.." for "..time_var_rgb.." seconds on "..crit_hit_rgb.."." end}, -- colors
+	return p_hitmass_var_rgb.." "..cleave_rgb.." for "..time_var_rgb.." seconds on "..crit_hit_rgb.."." end}, -- colors
 {	id = "trait_bespoke_8_desc_ext_en", -- Shred
 	loc_keys = {"loc_trait_bespoke_chained_hits_increases_crit_chance_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -209,7 +210,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_10_desc_ext_en", -- Exorcist
 	loc_keys = {"loc_trait_bespoke_chained_weakspot_hits_vents_warpcharge_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Quell "..warp_charge_var_rgb.." of "..peril_rgb.." on Repeated "..weakspothit_rgb.."." end}, -- colors
+	return "Quell "..warpchrg_var_rgb.." of "..peril_rgb.." on Repeated "..weakspothit_rgb.."." end}, -- colors
 {	id = "trait_bespoke_11_desc_ext_en", -- Riposte
 	loc_keys = {"loc_trait_bespoke_dodge_grants_crit_chance_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -221,7 +222,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_13_desc_ext_en", -- Deflector
 	loc_keys = {"loc_trait_bespoke_can_block_ranged_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "This weapon Blocks both Melee and Ranged attacks. Additionally, Block Cost is reduced by "..block_cost_var_rgb.."." end}, -- colors
+	return "This weapon Blocks both Melee and Ranged attacks. Additionally, Block Cost is reduced by "..blck_var_rgb.."." end}, -- colors
 {	id = "trait_bespoke_14_desc_ext_en", -- Uncanny Strike
 	loc_keys = {"loc_trait_bespoke_stacking_rending_on_weakspot_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -229,23 +230,23 @@ mod.localization_templates = {
 {	id = "trait_bespoke_15_desc_ext_en", -- Executor
 	loc_keys = {"loc_trait_bespoke_chained_weakspot_hits_increases_power_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." Level on Repeated "..weakspothit_rgb..". Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
+	return p_pwrlvl_var_rgb.." "..power_rgb.." Level on Repeated "..weakspothit_rgb..". Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
 {	id = "trait_bespoke_16_desc_ext_en", -- Slaughterer
 	loc_keys = {"loc_trait_bespoke_increase_power_on_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Kill. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors s->seconds
+	return p_pwrlvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Kill. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors s->seconds
 {	id = "trait_bespoke_17_desc_ext_en", -- Unstable Power
 	loc_keys = {"loc_trait_bespoke_warp_charge_power_bonus_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Up to "..p_pwr_lvl_var_rgb.." "..power_rgb..", with increasing "..peril_rgb.." Level. Stacks {#color(255, 255, 140)}4{#reset()} times." end}, -- colors Note!
+	return "Up to "..p_pwrlvl_var_rgb.." "..power_rgb..", with increasing "..peril_rgb.." Level. Stacks {#color(255, 255, 140)}4{#reset()} times." end}, -- colors Note!
 {	id = "trait_bespoke_18_desc_ext_en", -- Blazing Spirit
 	loc_keys = {"loc_trait_bespoke_warp_burninating_on_crit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Enemy gains "..stacks_var_rgb.." Stacks of "..soulblaze_rgb.." on "..crit_hit_rgb..", to a maximum of "..max_stacks_var_rgb.." Stacks." end}, -- colors ()
+	return "Enemy gains "..stacks_var_rgb.." Stacks of "..soulblaze_rgb.." on "..crit_hit_rgb..", to a maximum of "..maxstks_var_rgb.." Stacks." end}, -- colors ()
 {	id = "trait_bespoke_19_desc_ext_en", -- Superiority
 	loc_keys = {"loc_trait_bespoke_elite_kills_grants_stackable_power_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Up to "..stacks_var_rgb.." stacks of "..p_pwr_lvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Elite Kill. Stacks deteriorating one at a time."..pwr_note_rgb end}, -- colors s->seconds
+	return "Up to "..stacks_var_rgb.." stacks of "..p_pwrlvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Elite Kill. Stacks deteriorating one at a time."..pwr_note_rgb end}, -- colors s->seconds
 {	id = "trait_bespoke_20_desc_ext_en", -- Bloodthirsty
 	loc_keys = {"loc_trait_bespoke_guaranteed_melee_crit_on_activated_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -258,33 +259,33 @@ mod.localization_templates = {
 {	id = "trait_bespoke_22_desc_ext_en", -- Rev it up
 	loc_keys = {"loc_trait_bespoke_movement_speed_on_activation_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_mov_spd_var_rgb.." Movement Speed for "..time_var_rgb.." seconds on Weapon Special Activation." end}, -- colors s->seconds
+	return p_movspd_var_rgb.." Movement Speed for "..time_var_rgb.." seconds on Weapon Special Activation." end}, -- colors s->seconds
 -- ____________________________________________________Tactical Axe
 {	id = "trait_bespoke_23_desc_ext_en", -- Brutal Momentum
 	loc_keys = {"loc_trait_bespoke_infinite_cleave_on_weakspot_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_wksp_dmg_var_rgb.." "..weakspot_dmg_rgb..". "..weakspot_rgb.." Kills also ignore "..hit_mass_rgb.." of all enemies except Ogryns, and thereby receives infinite "..cleave_rgb.."." end}, -- colors
+	return p_wkspdmg_var_rgb.." "..weakspot_dmg_rgb..". "..weakspot_rgb.." Kills also ignore "..hit_mass_rgb.." of all enemies except Ogryns, and thereby receives infinite "..cleave_rgb.."." end}, -- colors
 {	id = "trait_bespoke_24_desc_ext_en", -- Limbsplitter
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_first_attack_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." on your First Attack every "..cd_var_rgb.." seconds."..pwr_note_rgb end}, -- colors
+	return p_pwrlvl_var_rgb.." "..power_rgb.." on your First Attack every "..cd_var_rgb.." seconds."..pwr_note_rgb end}, -- colors
 {	id = "trait_bespoke_25_desc_ext_en", -- All or Nothing
 	loc_keys = {"loc_trait_bespoke_power_bonus_scaled_on_stamina_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "When your "..stamina_rgb.." is reduced by {#color(255, 155, 55)}20%{#reset()}, you gain a Stack of "..power_rgb..", up to {#color(255, 255, 140)}5{#reset()} Stacks, which add up to "..p_pwr_lvl_var_rgb.." "..power_rgb.."."..pwr_note_rgb end}, -- colors Note!
+	return "When your "..stamina_rgb.." is reduced by {#color(255, 155, 55)}20%{#reset()}, you gain a Stack of "..power_rgb..", up to {#color(255, 255, 140)}5{#reset()} Stacks, which add up to "..p_pwrlvl_var_rgb.." "..power_rgb.."."..pwr_note_rgb end}, -- colors Note!
 {	id = "trait_bespoke_26_desc_ext_en", -- Headtaker
 	loc_keys = {"loc_trait_bespoke_increase_power_on_hit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Hit. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
+	return p_pwrlvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Hit. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
 {	id = "trait_bespoke_27_desc_ext_en", -- Decimator
 	loc_keys = {"loc_trait_bespoke_chained_hits_increases_power_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Continuously chaining more than {#color(255, 255, 140)}2{#reset()} attacks gives "..p_pwr_lvl_var_rgb.." "..power_rgb..". Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
+	return "Continuously chaining more than {#color(255, 255, 140)}2{#reset()} attacks gives "..p_pwrlvl_var_rgb.." "..power_rgb..". Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
 -- ____________________________________________________Combat Axe
 {	id = "trait_bespoke_28_desc_ext_en", -- Thrust
 	loc_keys = {"loc_trait_bespoke_power_bonus_based_on_charge_time_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Up to "..p_pwr_lvl_var_rgb.." "..power_rgb.." based on the charge time of your heavy attacks. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
+	return "Up to "..p_pwrlvl_var_rgb.." "..power_rgb.." based on the charge time of your heavy attacks. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
 {	id = "trait_bespoke_29_desc_ext_en", -- Thunderous
 	loc_keys = {"loc_trait_bespoke_targets_receive_rending_debuff_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -317,7 +318,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_36_desc_ext_en", -- Haymaker
 	loc_keys = {"loc_trait_bespoke_heavy_chained_hits_increases_killing_blow_chance_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_proc_chance_var_rgb.." to Instakill human-sized enemies on Chained Heavy Hit. Stacks "..stacks_var_rgb.." times." end}, -- colors
+	return p_procch_var_rgb.." to Instakill human-sized enemies on Chained Heavy Hit. Stacks "..stacks_var_rgb.." times." end}, -- colors
 
 {	id = "trait_bespoke_36_1_desc_ext_en", -- Opportunist
 	loc_keys = {"loc_trait_bespoke_armor_penetration_against_staggered_desc",},
@@ -326,11 +327,11 @@ mod.localization_templates = {
 {	id = "trait_bespoke_36_2_desc_ext_en", -- Lightning Reflexes
 	loc_keys = {"loc_trait_bespoke_block_has_chance_to_stun_variant_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Timed Blocking Stuns the attacker, and grants you "..p_pwr_lvl_var_rgb.." Melee "..power_rgb.." for {#color(222, 188, 122)}3{#reset()} seconds." end}, -- "..duration_var_rgb.." = {duration:%s} == 3s
+	return "Timed Blocking Stuns the attacker, and grants you "..p_pwrlvl_var_rgb.." Melee "..power_rgb.." for {#color(222, 188, 122)}3{#reset()} seconds." end}, -- "..dur_var_rgb.." = {duration:%s} == 3s
 {	id = "trait_bespoke_36_3_desc_ext_en", -- Overwhelming Force
 	loc_keys = {"loc_trait_bespoke_staggering_hits_has_chance_to_stun_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return staggerin_rgb.." an Enemy has a "..chance_var_rgb.." Chance to Stun the enemy. Cooldown {#color(222, 188, 122)}3.5{#reset()} seconds." end}, -- "..cd_var_rgb.." = {cooldown:%s} == 3.5s
+	return staggering_rgb.." an Enemy has a "..chnc_var_rgb.." Chance to Stun the enemy. Cooldown {#color(222, 188, 122)}3.5{#reset()} seconds." end}, -- "..cd_var_rgb.." = {cooldown:%s} == 3.5s
 {	id = "trait_bespoke_36_4_desc_ext_en", -- High Voltage
 	loc_keys = {"loc_trait_bespoke_damage_bonus_vs_electrocuted_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -341,7 +342,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_37_desc_ext_en", -- Warp Flurry
 	loc_keys = {"loc_trait_bespoke_faster_charge_on_chained_secondary_attacks_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return charge_time_var_rgb.." Charge Time on Chained Secondary Attack. Stack "..stacks_var_rgb.." times." end}, -- colors
+	return chrgtime_var_rgb.." Charge Time on Chained Secondary Attack. Stack "..stacks_var_rgb.." times." end}, -- colors
 {	id = "trait_bespoke_38_desc_ext_en", -- Terrifying Barrage
 	loc_keys = {"loc_trait_bespoke_suppression_on_close_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -349,16 +350,16 @@ mod.localization_templates = {
 {	id = "trait_bespoke_39_desc_ext_en", -- Warp Nexus
 	loc_keys = {"loc_trait_bespoke_increased_crit_chance_scaled_on_peril_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Gain between "..crit_var_rgb.." and "..crit_chance_max_var_rgb.." "..crit_chance_rgb.." based on current level of "..peril_rgb.."." end}, -- colors
+	return "Gain between "..crit_var_rgb.." and "..critchmax_var_rgb.." "..crit_chance_rgb.." based on current level of "..peril_rgb.."." end}, -- colors
 
 {	id = "trait_bespoke_40_desc_ext_en", -- Focused Channelling
 	loc_keys = {"loc_trait_bespoke_uninterruptable_while_charging_and_movement_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Your Secondary Attack cannot be interrupted and loses "..reduction_var_rgb.." of Secondary Attack Movement Speed penalties." end},
+	return "Your Secondary Attack cannot be interrupted and loses "..red_var_rgb.." of Secondary Attack Movement Speed penalties." end},
 {	id = "trait_bespoke_41_desc_ext_en", -- Run 'n' Gun
 	loc_keys = {"loc_trait_bespoke_allow_hipfire_while_sprinting_and_bonus_stats_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "You can Hipfire with this weapon while Sprinting. "..p_damage_near_var_rgb.." Close "..damage_rgb.." while Sprinting." end}, -- colors
+	return "You can Hipfire with this weapon while Sprinting. "..p_dmgnr_var_rgb.." Close "..damage_rgb.." while Sprinting." end}, -- colors
 -- ____________________________________________________Force Staff - Trauma
 {	id = "trait_bespoke_42_desc_ext_en", -- Rending Shockwave
 	loc_keys = {"loc_trait_bespoke_rend_armor_on_aoe_charge_desc",},
@@ -371,7 +372,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_44_desc_ext_en", -- Transfer Peril
 	loc_keys = {"loc_trait_bespoke_peril_vent_on_weakspot_hit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Quell "..warp_charge_var_rgb.." of your "..peril_rgb.." on "..weakspothit_rgb.."."..trauma_note_rgb end}, -- colors
+	return "Quell "..warpchrg_var_rgb.." of your "..peril_rgb.." on "..weakspothit_rgb.."."..trauma_note_rgb end}, -- colors
 {	id = "trait_bespoke_45_desc_ext_en", -- Blazing Spirit
 	loc_keys = {"loc_trait_bespoke_warpfire_burn_on_crit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -402,11 +403,11 @@ mod.localization_templates = {
 {	id = "trait_bespoke_51_desc_ext_en", -- Pinning Fire
 	loc_keys = {"loc_trait_bespoke_stacking_power_bonus_on_staggering_enemies_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." for every Enemy you "..stagger_rgb..". Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end},
+	return p_pwrlvl_var_rgb.." "..power_rgb.." for every Enemy you "..stagger_rgb..". Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end},
 	{	id = "trait_bespoke_52_desc_ext_en", -- Blaze Away
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_continuous_fire_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." for every "..ammo_var_rgb.." of magazine spent during continuous fire. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
+	return p_pwrlvl_var_rgb.." "..power_rgb.." for every "..ammo_var_rgb.." of magazine spent during continuous fire. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
 {	id = "trait_bespoke_53_desc_ext_en", -- Inspiring Barrage
 	loc_keys = {"loc_trait_bespoke_toughness_on_continuous_fire_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -415,7 +416,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_54_desc_ext_en", -- Opening Salvo
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_first_shot_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." on Salvo's First shot."..pwr_note_rgb end}, -- colors
+	return p_pwrlvl_var_rgb.." "..power_rgb.." on Salvo's First shot."..pwr_note_rgb end}, -- colors
 {	id = "trait_bespoke_55_desc_ext_en", -- Ghost
 	loc_keys = {"loc_trait_bespoke_count_as_dodge_vs_ranged_on_weakspot_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -439,7 +440,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_60_desc_ext_en", -- Deadly Accurate
 	loc_keys = {"loc_trait_bespoke_crit_weakspot_finesse_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_crit_wksp_dmg_var_rgb.." "..crit_rgb.." "..weakspot_dmg_rgb.."." end}, -- colors
+	return p_critwkspdmg_var_rgb.." "..crit_rgb.." "..weakspot_dmg_rgb.."." end}, -- colors
 {	id = "trait_bespoke_61_desc_ext_en", -- Headhunter
 	loc_keys = {"loc_trait_bespoke_weakspot_stacking_crit_chance_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -456,11 +457,11 @@ mod.localization_templates = {
 {	id = "trait_bespoke_64_desc_ext_en", -- Fire Frenzy
 	loc_keys = {"loc_trait_bespoke_increase_close_damage_on_close_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "You gain "..p_dmg_close_var_rgb.." "..damage_rgb.." for "..time_var_rgb.." seconds after killing an enemy at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters. Stacks "..stacks_var_rgb.." times." end}, -- colors Note!
+	return "You gain "..p_dmgcls_var_rgb.." "..damage_rgb.." for "..time_var_rgb.." seconds after killing an enemy at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters. Stacks "..stacks_var_rgb.." times." end}, -- colors Note!
 {	id = "trait_bespoke_65_desc_ext_en", -- Deathspitter
 	loc_keys = {"loc_trait_bespoke_increase_power_on_close_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." on Kill at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters for "..time_var_rgb.." seconds. Stacks {#color(255, 255, 140)}5{#reset()} times."..pwr_note_rgb end}, -- colors Note!
+	return p_pwrlvl_var_rgb.." "..power_rgb.." on Kill at a distance of up to {#color(255, 255, 140)}12.5{#reset()} meters for "..time_var_rgb.." seconds. Stacks {#color(255, 255, 140)}5{#reset()} times."..pwr_note_rgb end}, -- colors Note!
 {	id = "trait_bespoke_66_ext_en", -- Hit & Run
 	loc_keys = {"loc_trait_bespoke_count_as_dodge_vs_ranged_on_close_kill",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -485,7 +486,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_70_desc_ext_en", -- Infernus
 	loc_keys = {"loc_trait_bespoke_burninating_on_crit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_stacks_var_rgb.." "..burn_rgb.." Stacks on "..crit_hit_rgb.." to a maximum of "..max_stacks_var_rgb.." Stacks." end}, -- colors ()
+	return p_stacks_var_rgb.." "..burn_rgb.." Stacks on "..crit_hit_rgb.." to a maximum of "..maxstks_var_rgb.." Stacks." end}, -- colors ()
 -- ____________________________________________________Quickdraw Stub Revolver
 {	id = "trait_bespoke_71_desc_ext_en", -- Point Blank
 	loc_keys = {"loc_trait_bespoke_crit_chance_bonus_on_melee_kills_desc",},
@@ -498,7 +499,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_73_desc_ext_en", -- Trickshooter
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_chained_weakspot_hits_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." on Chained "..weakspothit_rgb.." to Any Target. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
+	return p_pwrlvl_var_rgb.." "..power_rgb.." on Chained "..weakspothit_rgb.." to Any Target. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
 {	id = "trait_bespoke_74_desc_ext_en", -- Gloryhunter
 	loc_keys = {"loc_trait_bespoke_toughness_on_elite_kills_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -532,7 +533,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_75_desc_ext_en", -- Shock & Awe
 	loc_keys = {"loc_trait_bespoke_hit_mass_consumption_reduction_on_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return hit_mass_var_rgb.." Enemy "..hit_mass_rgb.." for "..time_var_rgb.." seconds on Kill." end}, -- colors s->seconds
+	return m_hitmass_var_rgb.." Enemy "..hit_mass_rgb.." for "..time_var_rgb.." seconds on Kill." end}, -- colors s->seconds
 {	id = "trait_bespoke_76_desc_ext_en", -- Momentum
 	loc_keys = {"loc_trait_bespoke_toughness_recovery_on_multiple_hits_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -541,11 +542,11 @@ mod.localization_templates = {
 {	id = "trait_bespoke_77_desc_ext_en", -- Perfect Strike
 	loc_keys = {"loc_trait_bespoke_pass_past_armor_on_crit_new_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return crit_hits_rgb.." ignore "..hit_mass_rgb.." Bonus from Armour. "..p_crit_dmg_var_rgb.." Melee "..crit_hit_rgb.." "..damage_rgb.."." end}, -- colors
+	return crit_hits_rgb.." ignore "..hit_mass_rgb.." Bonus from Armour. "..p_critdmg_var_rgb.." Melee "..crit_hit_rgb.." "..damage_rgb.."." end}, -- colors
 {	id = "trait_bespoke_78_desc_ext_en", -- Deathblow
 	loc_keys = {"loc_trait_bespoke_infinite_melee_cleave_on_weakspot_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_wksp_dmg_var_rgb.." "..weakspot_dmg_rgb..". "..weakspot_rgb.." Kills also ignore Enemy "..hit_mass_rgb.."." end}, -- colors
+	return p_wkspdmg_var_rgb.." "..weakspot_dmg_rgb..". "..weakspot_rgb.." Kills also ignore Enemy "..hit_mass_rgb.."." end}, -- colors
 -- ____________________________________________________Lawbringer Combat Shotgun
 {	id = "trait_bespoke_79_desc_ext_en", -- Flechette
 	loc_keys = {"loc_trait_bespoke_bleed_on_crit_ranged_desc",},
@@ -562,16 +563,16 @@ mod.localization_templates = {
 {	id = "trait_bespoke_82_desc_ext_en", -- Full Bore
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_hitting_single_enemy_with_all_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds when every bullet in a shot hits the same enemy."..pwr_note_rgb end}, -- colors s->seconds
+	return p_pwrlvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds when every bullet in a shot hits the same enemy."..pwr_note_rgb end}, -- colors s->seconds
 -- ____________________________________________________Purgation Flamer
 {	id = "trait_bespoke_83_desc_ext_en", -- Fan the Flames
 	loc_keys = {"loc_trait_bespoke_ignore_stagger_reduction_with_primary_on_burning_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Primary Attacks ignores "..stgr_red_var_rgb.." "..stagger_rgb.." Resistance on "..burning_rgb.." Enemies, as well as dealing "..p_impact_modif_var_rgb.." "..impact_rgb.."." end}, -- colors
+	return "Primary Attacks ignores "..stgrrdct_var_rgb.." "..stagger_rgb.." Resistance on "..burning_rgb.." Enemies, as well as dealing "..p_impmod_var_rgb.." "..impact_rgb.."." end}, -- colors
 {	id = "trait_bespoke_84_desc_ext_en", -- Showstopper
 	loc_keys = {"loc_trait_bespoke_chance_to_explode_elites_on_kill_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return proc_chance_var_rgb.." chance Elite and Special enemies Explode on Kill." end}, -- colors %%->%
+	return procch_var_rgb.." chance Elite and Special enemies Explode on Kill." end}, -- colors %%->%
 {	id = "trait_bespoke_85_desc_ext_en", -- Quickflame
 	loc_keys = {"loc_trait_bespoke_faster_reload_on_empty_clip_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -579,7 +580,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_86_desc_ext_en", -- Overpressure
 	loc_keys = {"loc_trait_bespoke_power_scales_with_clip_percentage_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Up to "..p_pwr_lvl_var_rgb.." "..power_rgb..", scaling with remaining Ammunition. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
+	return "Up to "..p_pwrlvl_var_rgb.." "..power_rgb..", scaling with remaining Ammunition. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors
 -- ____________________________________________________Spearhead Boldgun
 {	id = "trait_bespoke_87_desc_ext_en", -- Shattering Impact
 	loc_keys = {"loc_trait_bespoke_armor_rend_on_projectile_hit_desc",},
@@ -596,17 +597,17 @@ mod.localization_templates = {
 {	id = "trait_bespoke_89_desc_ext_en", -- Power Cycler
 	loc_keys = {"loc_trait_bespoke_extended_activation_duration_on_chained_attacks_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_extra_hits_var_rgb.." Extra Chained Energised Hits." end}, -- colors
+	return p_xtrahits_var_rgb.." Extra Chained Energised Hits." end}, -- colors
 {	id = "trait_bespoke_90_desc_ext_en", -- Sunder
 	loc_keys = {"loc_trait_bespoke_infinite_armor_cleave_on_activated_attacks_and_heavy_damage_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Increased "..cleave_rgb.." and "..p_hdmg_var_rgb.." Heavy Melee Attack "..damage_rgb.." on Energised Attacks." end}, -- colors
+	return "Increased "..cleave_rgb.." and "..p_dmghvy_var_rgb.." Heavy Melee Attack "..damage_rgb.." on Energised Attacks." end}, -- colors
 -- ____________________________________________________Ranged
 -- ____________________________________________________Plasma Gun
 {	id = "trait_bespoke_91_desc_ext_en", -- Volatile
 	loc_keys = {"loc_trait_bespoke_lower_overheat_gives_faster_charge_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return charge_spd_var_rgb.." Charge Speed on low Overheat. Stacks up to "..stacks_var_rgb.." times." end}, -- colors -- "%Charge" -> "% Charge"
+	return p_chrgspd_var_rgb.." Charge Speed on low Overheat. Stacks up to "..stacks_var_rgb.." times." end}, -- colors -- "%Charge" -> "% Charge"
 {	id = "trait_bespoke_92_desc_ext_en", -- Gets Hot!
 	loc_keys = {"loc_trait_bespoke_crit_chance_scaled_on_heat_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -615,7 +616,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_93_desc_ext_en", -- Weight of Fire (Onslaught)
 	loc_keys = {"loc_trait_bespoke_faster_charge_on_chained_attacks_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return charge_time_var_rgb.." Charge Time when aiming. Stacks "..stacks_var_rgb.." times." end}, -- colors -- Chaining Charged Attacks reduces their Charge Time by {#color(255, 255, 140)}{charge_time:%s}{#reset()}. Stacks "..stacks_var_rgb.." times.
+	return chrgtime_var_rgb.." Charge Time when aiming. Stacks "..stacks_var_rgb.." times." end}, -- colors -- Chaining Charged Attacks reduces their Charge Time by {#color(255, 255, 140)}{charge_time:%s}{#reset()}. Stacks "..stacks_var_rgb.." times.
 
 -- ==================================================OGRYN
 -- ____________________________________________________Melee
@@ -632,7 +633,7 @@ mod.localization_templates = {
 {	id = "trait_bespoke_96_desc_ext_en", -- Tenderiser
 	loc_keys = {"loc_trait_bespoke_increased_power_on_weapon_special_follow_up_hits_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return pwr_var_rgb.." "..power_rgb.." for your next {#color(255, 255, 140)}3+{#reset()} Melee attacks after Weapon Special attack Hit."..pwr_note_rgb end}, -- colors ()
+	return p_pwr_var_rgb.." "..power_rgb.." for your next {#color(255, 255, 140)}3+{#reset()} Melee attacks after Weapon Special attack Hit."..pwr_note_rgb end}, -- colors ()
 {	id = "trait_bespoke_97_desc_ext_en", -- Unstoppable Force
 	loc_keys = {"loc_trait_bespoke_pass_past_armor_on_heavy_attack_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -642,7 +643,7 @@ mod.localization_templates = {
 	{	id = "trait_bespoke_97_1_desc_ext_en", -- Torment
 	loc_keys = {"loc_trait_bespoke_increase_power_on_weapon_special_hit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Weapon Special Hit." end},
+	return p_pwrlvl_var_rgb.." "..power_rgb.." for "..time_var_rgb.." seconds on Weapon Special Hit." end},
 	{	id = "trait_bespoke_97_2_desc_ext_en", -- Slow and Steady
 	loc_keys = {"loc_trait_bespoke_toughness_on_hit_based_on_charge_time_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
@@ -653,19 +654,19 @@ mod.localization_templates = {
 {	id = "trait_bespoke_98_desc_ext_en", -- Charmed Reload
 	loc_keys = {"loc_trait_bespoke_ammo_refill_from_reserve_on_crit_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return bullet_am_var_rgb.." bullets loaded from Reserve on "..crit_hit_rgb.."." end}, -- colors
+	return blltam_var_rgb.." bullets loaded from Reserve on "..crit_hit_rgb.."." end}, -- colors
 {	id = "trait_bespoke_99_desc_ext_en", -- Roaring Advance
 	loc_keys = {"loc_trait_bespoke_movement_speed_on_continuous_fire_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return mov_spd_var_rgb.." Movement Speed Reduction for every "..ammo_var_rgb.." of magazine spent during continuous fire. Stacks "..stacks_var_rgb.." times." end}, -- colors s->seconds
+	return m_movspd_var_rgb.." Movement Speed Reduction for every "..ammo_var_rgb.." of magazine spent during continuous fire. Stacks "..stacks_var_rgb.." times." end}, -- colors s->seconds
 {	id = "trait_bespoke_100_desc_ext_en", -- Overwhelming Fire
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_chained_hits_on_single_target_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return pwr_var_rgb.." "..power_rgb.." for every "..hit_var_rgb.." Single Target Hits. Lasts "..time_var_rgb.." seconds and Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors s->seconds
+	return p_pwr_var_rgb.." "..power_rgb.." for every "..hit_var_rgb.." Single Target Hits. Lasts "..time_var_rgb.." seconds and Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end}, -- colors s->seconds
 {	id = "trait_bespoke_101_desc_ext_en", -- Ceaseless Barrage
 	loc_keys = {"loc_trait_bespoke_suppression_on_continuous_fire_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_spprsn_var_rgb.." Suppression and "..p_dmgvspprsd_var_rgb.." "..damage_rgb.." against Suppressed Enemies for every "..ammo_var_rgb.." of magazine spent during continuous fire. Stacks "..stacks_var_rgb.." times." end}, -- colors
+	return p_spprsn_var_rgb.." Suppression and "..p_dmgvsprsd_var_rgb.." "..damage_rgb.." against Suppressed Enemies for every "..ammo_var_rgb.." of magazine spent during continuous fire. Stacks "..stacks_var_rgb.." times." end}, -- colors
 	-- return "+{suppression:%s} Suppression and +{damage_vs_suppressed:%s} Damage against Suppressed Enemies for every {ammo:%s} of magazine spent during continuous fire. Stacks {stacks:%s} times." end}, -- colors
 -- ____________________________________________________Ripper Gun
 {	id = "trait_bespoke_102_desc_ext_en", -- Can opener
@@ -689,11 +690,11 @@ mod.localization_templates = {
 {	id = "trait_bespoke_106_desc_ext_en", -- Expansive
 	loc_keys = {"loc_trait_bespoke_weapon_special_power_bonus_after_one_shots_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." Melee "..power_rgb.." for "..time_var_rgb.." seconds on Hitting {#color(255, 255, 140)}3+{#reset()} Enemies with a Ranged Attack."..pwr_note_rgb end}, -- colors s->seconds -- "+30%Melee Power for  3.5s"->"+30% Melee Power for 3.5 seconds"
+	return p_pwrlvl_var_rgb.." Melee "..power_rgb.." for "..time_var_rgb.." seconds on Hitting {#color(255, 255, 140)}3+{#reset()} Enemies with a Ranged Attack."..pwr_note_rgb end}, -- colors s->seconds -- "+30%Melee Power for  3.5s"->"+30% Melee Power for 3.5 seconds"
 {	id = "trait_bespoke_107_desc_ext_en", -- Punishing Fire
 	loc_keys = {"loc_trait_bespoke_shot_power_bonus_after_weapon_special_cleave_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." Bonus on your ranged attack for "..time_var_rgb.." seconds after cleaving through several enemies with your weapon's Special attack."..pwr_note_rgb end}, -- colors
+	return p_pwrlvl_var_rgb.." "..power_rgb.." Bonus on your ranged attack for "..time_var_rgb.." seconds after cleaving through several enemies with your weapon's Special attack."..pwr_note_rgb end}, -- colors
 --____________________________________________________Grenadier Gauntlet
 {	id = "trait_bespoke_108_desc_ext_en", -- Reassuringly Accurate
 	loc_keys = {"loc_trait_bespoke_toughness_on_crit_kills_desc",},
@@ -702,11 +703,11 @@ mod.localization_templates = {
 {	id = "trait_bespoke_109_desc_ext_en", -- Pinpointing target
 	loc_keys = {"loc_trait_bespoke_power_bonus_based_on_charge_time_ranged_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." every "..time_var_rgb.." seconds while aiming, stacking "..stacks_var_rgb.." times. Discharges all stacks upon firing."..pwr_note_rgb end},
+	return p_pwrlvl_var_rgb.." "..power_rgb.." every "..time_var_rgb.." seconds while aiming, stacking "..stacks_var_rgb.." times. Discharges all stacks upon firing."..pwr_note_rgb end},
 	{	id = "trait_bespoke_110_desc_ext_en", -- Blaze Away alt
 	loc_keys = {"loc_trait_bespoke_power_bonus_on_continuous_fire_alternative_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return p_pwr_lvl_var_rgb.." "..power_rgb.." for every shot fired during continuous fire. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end},
+	return p_pwrlvl_var_rgb.." "..power_rgb.." for every shot fired during continuous fire. Stacks "..stacks_var_rgb.." times."..pwr_note_rgb end},
 
 -- FOR TESTS ONLY!!!
 -- {id = "weap_testum00", loc_keys = {"",}, locales = {"en",}, handle_func = function(locale, value) return string.gsub(value, "{", "(") end,},

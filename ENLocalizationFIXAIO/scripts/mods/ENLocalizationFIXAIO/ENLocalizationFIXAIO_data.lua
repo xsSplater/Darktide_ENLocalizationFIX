@@ -47,6 +47,7 @@ table.insert(options.options.widgets, create_option_set("combat_ability", "olive
 table.insert(options.options.widgets, create_option_set("corruption", "ui_corruption_medium"))
 table.insert(options.options.widgets, create_option_set("crit", "citadel_yriel_yellow"))
 table.insert(options.options.widgets, create_option_set("damage", "citadel_jokaero_orange"))
+table.insert(options.options.widgets, create_option_set("electrocuted", "citadel_stormfang"))
 table.insert(options.options.widgets, create_option_set("fnp", "light_coral"))
 table.insert(options.options.widgets, create_option_set("finesse", "dodger_blue"))
 table.insert(options.options.widgets, create_option_set("focus", "dark_violet"))

@@ -6,7 +6,7 @@ local localizations = {
 		en = "Enhanced Descriptions - All in one",
 	},
 	mod_description = {
-		en = "Enhanced Descriptions — fixes and additions to game descriptions.",
+		en = "Enhanced Descriptions â€” fixes and additions to game descriptions. Merged mod. Included TALENTS, CURIOS, WEAPON PERKS and BLESSINGS.",
 	},
 
 	bleed_colour = {
@@ -33,6 +33,9 @@ local localizations = {
 	damage_colour = {
 		en = "Damage",
 	},
+	electrocuted_colour = {
+		en = "Electrocuted",
+	},
 	fnp_colour = {
 		en = "Feel No Pain",
 	},
@@ -49,7 +52,7 @@ local localizations = {
 		en = "Fury",
 	},
 	health_colour = {
-		en = "Health",
+		en = "Health / Wound",
 	},
 	hit_mass_colour = {
 		en = "Hit Mass",

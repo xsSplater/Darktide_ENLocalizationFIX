@@ -124,7 +124,7 @@ local trample_rgb = iu_actit("Trample", trample_col)
 -- ==============================================================WEAK SPOT
 local wksp_col = Color[mod:get("weakspot_text_colour")](255, true)
 local weakspot_rgb = iu_actit("Weakspot", wksp_col)
-local weakspot_hits_rgb = iu_actit("Weakspot Hits", wksp_col)
+local weakspothits_rgb = iu_actit("Weakspot Hits", wksp_col)
 local weakspot_dmg_rgb = iu_actit("Weakspot Damage", wksp_col)
 -- ==============================================================VARIABLES
 local var_col = Color[mod:get("variables_text_colour")](255, true)
@@ -1676,7 +1676,7 @@ mod.localization_templates = {
 {	id = "talent_tree_zea_pas_026_desc_en",
 	loc_keys = {"loc_talent_zealot_increased_stagger_on_weakspot_melee_description",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "{impact_modifier:%s} "..stagger_rgb.." on Melee "..weakspot_hits_rgb..".{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Also applies to Melee special actions of Ranged weapons (i.e. bashes with Bolter, Braced Autogun, Headhunter Autogun, Stub Revolver).\n- Stacks additively with related buffs from \"Hammer of Faith\", \"Punishment\" or \"The Emperor's Bullet\".{#reset()}" end}, -- impact_modifier:+50%. -- colors
+	return "{impact_modifier:%s} "..stagger_rgb.." on Melee "..weakspothits_rgb..".{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Also applies to Melee special actions of Ranged weapons (i.e. bashes with Bolter, Braced Autogun, Headhunter Autogun, Stub Revolver).\n- Stacks additively with related buffs from \"Hammer of Faith\", \"Punishment\" or \"The Emperor's Bullet\".{#reset()}" end}, -- impact_modifier:+50%. -- colors
 -- {	id = "talent_tree_zea_pas_027_en", -- Ambuscade 28
 	-- loc_keys = {"loc_talent_zealot_increased_flanking_damage",},
 	-- locales = {"en",},
@@ -1782,7 +1782,7 @@ mod.localization_templates = {
 {	id = "talent_tree_vet_blitz3_000_desc_en",
 	loc_keys = {"loc_ability_smoke_grenade_description",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Throw a Grenade that creates a lingering Smoke cloud for {duration:%s} seconds. The cloud blocks line of sight for most enemies and reduces the sight range of enemies inside it.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Fuse time: 1.5 seconds.\n- Smoke cloud effect:\n-- Radius: 5.5 meters.\n-- Lasts: 15 seconds.\n-- Detection radius of unaggroed enemies is lowered so that players can enter an enemy's aggro range without drawing aggro immediately.\n-- If the player holds aggro in Melee combat, smoke doesn�t affect enemy perception.\n-- If the player holds aggro in Ranged combat, smoke makes the enemy stop firing and reposition.\n-- Gunners and Reapers in the smoke cloud keep firing at the player�s last known position.\n-- Pox Hounds cannot lock on a player who is inside smoke cloud's area of effect and will keep circling the cloud.\n- Replenishes all grenades per grenade pickup.\n- No effect on Mutants, Poxbursters and Bombers.{#reset()}" end}, -- duration:15. -- colors Notice!
+	return "Throw a Grenade that creates a lingering Smoke cloud for {duration:%s} seconds. The cloud blocks line of sight for most enemies and reduces the sight range of enemies inside it.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Fuse time: 1.5 seconds.\n- Smoke cloud effect:\n-- Radius: 5.5 meters.\n-- Lasts: 15 seconds.\n-- Detection radius of unaggroed enemies is lowered so that players can enter an enemy's aggro range without drawing aggro immediately.\n-- If the player holds aggro in Melee combat, smoke doesnвЂ™t affect enemy perception.\n-- If the player holds aggro in Ranged combat, smoke makes the enemy stop firing and reposition.\n-- Gunners and Reapers in the smoke cloud keep firing at the playerвЂ™s last known position.\n-- Pox Hounds cannot lock on a player who is inside smoke cloud's area of effect and will keep circling the cloud.\n- Replenishes all grenades per grenade pickup.\n- No effect on Mutants, Poxbursters and Bombers.{#reset()}" end}, -- duration:15. -- colors Notice!
 
 -- ==============================================================AURA
 --_____________________________________________________Aura 0
@@ -1896,7 +1896,7 @@ mod.localization_templates = {
 {	id = "talent_tree_vet_abil1_005_desc_en",
 	loc_keys = {"loc_talent_veteran_ability_marksman_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "On Ability use, for {duration:%s} seconds any "..weakspot_hits_rgb.." gain {power:%s} "..power_rgb..".\n\nWhen using {talent_name:%s}, this is applied after leaving "..stealth_rgb..".{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Increases the Power level of both Melee or Ranged attacks against Weakspots by 20%.\n- Stacks additively with related Power level modifiers from weapon Blessings (e.g. \"Blaze Away\", \"Deathspitter\", \"Slaughterer\", \"Thrust\", etc).{#reset()}" end}, -- duration:10 power:+20%. talent_name:Infiltrate. -- colors s->seconds
+	return "On Ability use, for {duration:%s} seconds any "..weakspothits_rgb.." gain {power:%s} "..power_rgb..".\n\nWhen using {talent_name:%s}, this is applied after leaving "..stealth_rgb..".{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Increases the Power level of both Melee or Ranged attacks against Weakspots by 20%.\n- Stacks additively with related Power level modifiers from weapon Blessings (e.g. \"Blaze Away\", \"Deathspitter\", \"Slaughterer\", \"Thrust\", etc).{#reset()}" end}, -- duration:10 power:+20%. talent_name:Infiltrate. -- colors s->seconds
 -- _____________________________________________________Ability 2
 -- {	id = "talent_tree_vet_abil2_000_en", -- Voice of Command
 	-- loc_keys = {"loc_talent_veteran_combat_ability_stagger_nearby_enemies",},
@@ -2000,7 +2000,7 @@ mod.localization_templates = {
 
 -- ==============================================================KEYSTONES
 --_____________________________________________________Keystone 1
--- {	id = "talent_tree_vet_keys1_000_en", -- Marksman�s Focus
+-- {	id = "talent_tree_vet_keys1_000_en", -- MarksmanвЂ™s Focus
 	-- loc_keys = {"loc_talent_veteran_snipers_focus",},
 	-- locales = {"en",},
 	-- handle_func = function(locale, value)
@@ -2008,7 +2008,7 @@ mod.localization_templates = {
 {	id = "talent_tree_vet_keys1_000_desc_en",
 	loc_keys = {"loc_talent_veteran_snipers_focus_alt_description",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "Ranged "..weakspot_rgb.." kills grant {stacks:%s} Stacks of "..focus_rgb..". Up to {max_stacks} Max Stacks. Sprinting, sliding and walking removes Stacks.\n\nEach stack of "..focus_rgb.." grants:\n{power:%s} Ranged "..finesse_rgb.." Power and\n{reload_speed:%s} Reload Speed.\n\nRanged "..weakspot_rgb.." kills let you move without losing Stacks for {grace_time:%s} seconds. Ranged "..weakspot_hits_rgb.." lets you move without losing Stacks for {grace_time_hit:%s} second.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Finesse gives an increased Damage to Weakspots and Damage from Critical Hits.\n- Drops Stacks based on movement: Walking removes 1 Stack per second, Sprinting removes 1 Stack every 0.5 seconds; also accounts for respective move speed while Sliding.\n- The Finesse bonus Stacks additively with other Weakspot and Finesse Damage buffs. The Reload Speed Stacks additively with buffs from \"Fleeting Fire\", \"Tactical Reload\", \"Volley Adept\", the Reload Speed node, weapon Perks and Blessings, and Celerity Stimm. The Reload Speed buff also increases the speed of the loading special action of Combat Shotguns.{#reset()}" end}, -- stacks:3. power:+7.5% reload_speed:+1%. grace_time:6. grace_time_hit:3. -- colors () s->second/seconds Notice!
+	return "Ranged "..weakspot_rgb.." kills grant {stacks:%s} Stacks of "..focus_rgb..". Up to {max_stacks} Max Stacks. Sprinting, sliding and walking removes Stacks.\n\nEach stack of "..focus_rgb.." grants:\n{power:%s} Ranged "..finesse_rgb.." Power and\n{reload_speed:%s} Reload Speed.\n\nRanged "..weakspot_rgb.." kills let you move without losing Stacks for {grace_time:%s} seconds. Ranged "..weakspothits_rgb.." lets you move without losing Stacks for {grace_time_hit:%s} second.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Finesse gives an increased Damage to Weakspots and Damage from Critical Hits.\n- Drops Stacks based on movement: Walking removes 1 Stack per second, Sprinting removes 1 Stack every 0.5 seconds; also accounts for respective move speed while Sliding.\n- The Finesse bonus Stacks additively with other Weakspot and Finesse Damage buffs. The Reload Speed Stacks additively with buffs from \"Fleeting Fire\", \"Tactical Reload\", \"Volley Adept\", the Reload Speed node, weapon Perks and Blessings, and Celerity Stimm. The Reload Speed buff also increases the speed of the loading special action of Combat Shotguns.{#reset()}" end}, -- stacks:3. power:+7.5% reload_speed:+1%. grace_time:6. grace_time_hit:3. -- colors () s->second/seconds Notice!
 --_____________________________________________________Keystone 1 Modifier 1
 -- {	id = "talent_tree_vet_keys1_001_en", -- Chink in their Armour
 	-- loc_keys = {"loc_talent_veteran_snipers_focus_rending_bonus",},
@@ -2816,7 +2816,7 @@ mod.localization_templates = {
 {	id = "talent_tree_ogr_keys2_000_desc_en",
 	loc_keys = {"loc_talent_ogryn_carapace_armor_any_damage_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "You are blessed with {stacks:%s} Stacks of "..fnp_rgb..". Each Stack grants {toughness_regen:%s} "..toughness_rgb.." Replenishment and {damage_reduction:%s} "..damage_rgb.." Reduction.\n\nTaking "..damage_rgb.." removes one Stack. Stacks are restored every {duration:%s} seconds.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- 1 second Grace period after a Stack is removed, where additional Stacks cannot be lost.\n- Toughness Damage Reduction bonus multiplicative.\n- Does not regen Stacks while Disabled or Downed.\n- Increases Ogryn's base amount of Coherency Toughness regenerated while in Coherency by up to 25%:\n_______________________________\nAllies:			Toughness:\n1			3.75 -> 4.69\n2			5.63 -> 7.03\n3			7.50 -> 9.38\n_______________________________\n- Stacks additively with Ogryn's Aura \"Stay Close!\", \"Lynchpin\", the keystone node \"Toughest!\", Toughness Regeneration Speed from Curios, and Psyker's and Veteran's Talent nodes \"Inspiring Presence\".\n- Also reduces Toughness Damage taken.\n- The buff Stacks multiplicatively with itself, up to ~22.4% at Max Stacks (1-0.975??=0.2236), and with other Damage Reduction buffs.{#reset()}" end}, -- stacks:10 toughness_regen:+2.5% damage_reduction:+2.5%. duration:3. -- colors s->seconds
+	return "You are blessed with {stacks:%s} Stacks of "..fnp_rgb..". Each Stack grants {toughness_regen:%s} "..toughness_rgb.." Replenishment and {damage_reduction:%s} "..damage_rgb.." Reduction.\n\nTaking "..damage_rgb.." removes one Stack. Stacks are restored every {duration:%s} seconds.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- 1 second Grace period after a Stack is removed, where additional Stacks cannot be lost.\n- Toughness Damage Reduction bonus multiplicative.\n- Does not regen Stacks while Disabled or Downed.\n- Increases Ogryn's base amount of Coherency Toughness regenerated while in Coherency by up to 25%:\n_______________________________\nAllies:		Toughness:\n1		3.75 -> 4.69\n2		5.63 -> 7.03\n3		7.50 -> 9.38\n_______________________________\n- Stacks additively with Ogryn's Aura \"Stay Close!\", \"Lynchpin\", the keystone node \"Toughest!\", Toughness Regeneration Speed from Curios, and Psyker's and Veteran's Talent nodes \"Inspiring Presence\".\n- Also reduces Toughness Damage taken.\n- The buff Stacks multiplicatively with itself, up to ~22.4% at Max Stacks (1-0.975??=0.2236), and with other Damage Reduction buffs.{#reset()}" end}, -- stacks:10 toughness_regen:+2.5% damage_reduction:+2.5%. duration:3. -- colors s->seconds
 --_____________________________________________________Keystone 2 Modifier 1
 -- {	id = "talent_tree_ogr_keys2_001_en", -- Pained Outburst
 	-- loc_keys = {"loc_talent_ogryn_carapace_armor_trigger_on_zero_stacks",},
@@ -2924,7 +2924,7 @@ mod.localization_templates = {
 {	id = "talent_tree_ogr_pas_003_desc_en",
 	loc_keys = {"loc_talent_ogryn_ogryn_fighter_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "{damage:%s} "..damage_rgb.." against Bulwarks, Crushers, Plague Ogryns and Reapers. Also receive {damage_reduction:%s} "..damage_rgb.." Reduction against the same.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Increases all Damage against enemies that have the Ogryn tag.\n- Stacks additively with other related Damage buffs.\n- Also reduces both Toughness and Health Damage taken from enemies that have the Ogryn tag.\n- Stacks multiplicatively with other Damage reduction buffs.\n- Currently, breeds with Ogryn tag are: Bulwarks, Crushers, Reapers.\n- The Talent has no effect against Plague Ogryn.{#reset()}" end}, -- damage:+30% damage_reduction:+30%. -- colors
+	return "{damage:%s} "..damage_rgb.." against Bulwarks, Crushers, Plague Ogryns and Reapers. Also receive {damage_reduction:%s} "..damage_rgb.." Reduction against the same.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Increases all Damage against enemies that have the Ogryn tag.\n- Currently, breeds with Ogryn tag are: Bulwarks, Crushers, Reapers.\n- Stacks additively with other related Damage buffs.\n- Also reduces both Toughness and Health Damage taken from enemies that have the Ogryn tag.\n- Stacks multiplicatively with other Damage reduction buffs.\n- The Talent has no effect against Plague Ogryn.{#reset()}" end}, -- damage:+30% damage_reduction:+30%. -- colors
 -- {	id = "talent_tree_ogr_pas_004_en", -- Steady Grip
 	-- loc_keys = {"loc_talent_ogryn_toughness_regen_while_bracing",},
 	-- locales = {"en",},
@@ -2933,7 +2933,7 @@ mod.localization_templates = {
 {	id = "talent_tree_ogr_pas_004_desc_en",
 	loc_keys = {"loc_talent_ogryn_toughness_regen_while_bracing_desc",},
 	locales = {"en",}, handle_func = function(locale, value)
-	return "{toughness_regen:%s} "..toughness_rgb.." Regeneration while bracing your Ranged weapon.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- Damage buff Stacks additively with other related Damage buffs.\n- Also reduces both Toughness and Health Damage taken from enemies that have the ogryn tag.\n- Stacks multiplicatively with other Damage reduction buffs.\n- Currently, breeds with ogryn tag are: Bulwarks, Crushers, Reapers.\n- The Talent has no effect against Plague Ogryn.{#reset()}" end}, -- toughness_regen:+3%. -- colors
+	return "{toughness_regen:%s} "..toughness_rgb.." Regeneration while bracing your Ranged weapon.{#color(177, 144, 0)}\n+++-------------------------------------------------+++\n- \"Braced\" refers to an action keyword in Ranged Weapon profiles.\n- Using a Weapon's alt fire, like Zooming or firing when Zoomed in, activates the buff.\n- Does not interact with Coherency Toughness.{#reset()}" end}, -- toughness_regen:+3%. -- colors
 -- {	id = "talent_tree_ogr_pas_005_en", -- Smash 'Em!
 	-- loc_keys = {"loc_talent_ogryn_toughness_on_single_heavy",},
 	-- locales = {"en",},
