@@ -1,22 +1,25 @@
 My sincere thanks to comrad deluxghost for the opportunity to make this mod!
 
-# EN Localization Fix
+# Darktide - Enhanced Descriptions
 # +++------------------------------------------------+++
 
-## ENLocalizationFIXBlessings - This Module enhance descriptions and highlights the numbers and keywords of WEAPON BLESSINGS.
-Version 1.66
+## ENLocalizationFIXAIO - This module expands the descriptions, highlights numbers and keywords in TALENTS, WEAPON/CURIOS BLESSINGS and PERKS. ALL-IN-ONE.
+Version 1.99
+
+## ENLocalizationFIXBlessings - This module expands the descriptions and highlights numbers and keywords in WEAPON BLESSINGS.
+Version 1.99
 ![Example](https://staticdelivery.nexusmods.com/mods/4943/images/210/210-1703188791-506633930.jpeg)
 
-## ENLocalizationFIXCurios - CURIOS module.
-Version 1.6
+## ENLocalizationFIXCurios - This module highlights numbers and keywords for CURIOS BLESSINGS and PERKS.
+Version 1.99
 ![Example](https://staticdelivery.nexusmods.com/mods/4943/images/210/210-1703185209-372493805.jpeg)
 
 ## ENLocalizationFIXTalents - Some fixes, additions and readability improvements for TALENTS.
-Version 1.3
+Version 1.99
 ![Example](https://staticdelivery.nexusmods.com/mods/4943/images/210/210-1717134353-341538643.png)
 
 ## ENLocalizationFIXTraits - This Module highlights the numbers and keywords of WEAPON PERKS.
-Version 1.66
+Version 1.99
 ![Example](https://staticdelivery.nexusmods.com/mods/4943/images/210/210-1703188550-1552301533.jpeg)
 # +++------------------------------------------------+++
 
