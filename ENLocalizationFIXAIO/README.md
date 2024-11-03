@@ -4,4 +4,4 @@ My sincere thanks to comrad deluxghost for the opportunity to make this mod!
 # +++------------------------------------------------+++
 
 ## ENLocalizationFIXAIO - Merged mod. Included TALENTS, CURIOS, WEAPON PERKS and BLESSINGS.
-Version 1.99
+Version 2.0
