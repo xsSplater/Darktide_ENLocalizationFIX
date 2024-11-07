@@ -24,6 +24,13 @@ local localizations = {
 		en = "This module highlights the words and numbers of the Blessings and Perks of the Curios. You can disable this module if you don't need it.\n{#color(255, 155, 55)}But you have to Reload mods by pressing CTRL+SHIFT+R!{#reset()}\n{#color(100, 100, 100)}* To enable this feature, you need to go to the Darktide Mod Framework options and enable Developer Mode.{#reset()}",
 	},
 
+	enable_menus_file = {
+		en = "Toggle Highlighted Words - Menus",
+	},
+	enable_menus_file_description = {
+		en = "This module highlights the numbers of the Melk's Contracts. You can disable this module if you don't need it.\n{#color(255, 155, 55)}But you have to Reload mods by pressing CTRL+SHIFT+R!{#reset()}\n{#color(100, 100, 100)}* To enable this feature, you need to go to the Darktide Mod Framework options and enable Developer Mode.{#reset()}",
+	},
+
 	enable_talents_file = {
 		en = "Toggle Highlighted Words - Talents",
 	},

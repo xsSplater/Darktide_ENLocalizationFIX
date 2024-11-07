@@ -17,6 +17,7 @@ mod:hook_safe(CLASS.MarksVendorView, "on_enter", function (self)
 	self._widgets_by_name.purchase_button.offset = {-622,20,0} end)
 
 --[+ Load localization templates from the specified files +]--
+local MENUS_File = mod:get("enable_curious_file") and mod:io_dofile("ENLocalizationFIXAIO/scripts/mods/ENLocalizationFIXAIO/MENUS") or {}
 local CURIOS_File = mod:get("enable_curious_file") and mod:io_dofile("ENLocalizationFIXAIO/scripts/mods/ENLocalizationFIXAIO/CURIOS_Blessings_Perks") or {}
 local WEAPONS_File = mod:get("enable_weapons_file") and mod:io_dofile("ENLocalizationFIXAIO/scripts/mods/ENLocalizationFIXAIO/WEAPONS_Blessings_Perks") or {}
 local TALENTS_File = mod:get("enable_talents_file") and mod:io_dofile("ENLocalizationFIXAIO/scripts/mods/ENLocalizationFIXAIO/TALENTS") or {}
@@ -61,7 +62,7 @@ local function create_template(id, loc_keys, locales, handle_func) return { id =
 
 mod.localization_templates = {
     --[+ Add templates loaded from the files: CURIOS_Blessings_Perks.lua, TALENTS.lua, WEAPONS_Blessings_Perks.lua +]--
-    custom_unpack(CURIOS_File, TALENTS_File, WEAPONS_File),
+    custom_unpack(MENUS_File, CURIOS_File, TALENTS_File, WEAPONS_File),
 
 -- FOR TESTS ONLY!!!
 -- create_template("weap_testum00", {""}, {"en"}, function(locale, value) return string.gsub(value, "{", "(") end),

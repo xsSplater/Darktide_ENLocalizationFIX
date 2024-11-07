@@ -186,19 +186,19 @@ local localization_templates = {
 	create_template("trait_bespoke_040_desc_ext_en", {"loc_trait_bespoke_can_block_ranged_desc"}, {"en"}, function(locale, value) return "This weapon Blocks both Melee and Ranged attacks. Additionally, Block Cost is reduced by "..COLORS_Numbers.block_var_rgb.."." end), -- block_cost: 30% -- colors
 		--[+ Exorcist +]--
 			-- Force Swords -- 2% | 3% | 4% | 5%
-	create_template("trait_bespoke_041_desc_ext_en", {"loc_trait_bespoke_chained_weakspot_hits_vents_warpcharge_desc"}, {"en"}, function(locale, value) return "Quell "..COLORS_Numbers.warpchrg_var_rgb.." of "..COLORS_KWords.Peril_rgb.." on Repeated "..COLORS_KWords.Weakspothit_rgb.."." end), -- warp_charge: 5% -- colors
+	create_template("trait_bespoke_041_desc_ext_en", {"loc_trait_bespoke_chained_weakspot_hits_vents_warpcharge_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.warpchrg_var_rgb.." of "..COLORS_KWords.Peril_rgb.." is quelled on Repeated "..COLORS_KWords.Weakspothit_rgb.."." end), -- warp_charge: 5% -- colors
 		--[+ Superiority +]--
 			-- Force Swords -- 5% | 7.5% | 10% | 12.5% (up to +37.5%)
 	create_template("trait_bespoke_042_desc_ext_en", {"loc_trait_bespoke_elite_kills_grants_stackable_power_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.p_pwrlvl_var_rgb.." "..COLORS_KWords.Strength_rgb.." for "..COLORS_Numbers.time_var_rgb.." seconds on Elite Kill. Stacks "..COLORS_Numbers.stacks_var_rgb.." times, deteriorating one at a time."..COLORS_KWords.Pwr_note_rgb end), -- stacks: 5, power_level: +12.5%, time: 7 -- s->seconds -- colors
 		--[+ Blazing Spirit +]--
 			-- Force Swords -- 1 (3 max) | 2 (6 max) | 3 (9 max) | 4 (12 max)
-	create_template("trait_bespoke_043_desc_ext_en", {"loc_trait_bespoke_warp_burninating_on_crit_desc"}, {"en"}, function(locale, value) return "Enemy gains "..COLORS_Numbers.stacks_var_rgb.." Stacks of "..COLORS_KWords.Soulblaze_rgb.." on "..COLORS_KWords.Crit_hit_rgb..", to a maximum of "..COLORS_Numbers.maxstks_var_rgb.." Stacks." end), -- stacks: +4, max_stacks: 12 -- Stack(s)->Stacks -- colors
+	create_template("trait_bespoke_043_desc_ext_en", {"loc_trait_bespoke_warp_burninating_on_crit_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.n_plus_rgb..COLORS_Numbers.stacks_var_rgb.." Stacks of "..COLORS_KWords.Soulblaze_rgb.." are gained by the enemy on "..COLORS_KWords.Crit_hit_rgb..", to a maximum of "..COLORS_Numbers.maxstks_var_rgb.." Stacks." end), -- stacks: +4, max_stacks: 12 -- Stack(s)->Stacks -- colors
 		--[+ Unstable Power +]--
 			-- Force Swords -- 3.5% | 4% | 4.5% | 5% (up to +20%)
 	create_template("trait_bespoke_044_desc_ext_en", {"loc_trait_bespoke_warp_charge_power_bonus_desc"}, {"en"}, function(locale, value) return "Up to "..COLORS_Numbers.p_pwrlvl_var_rgb.." "..COLORS_KWords.Strength_rgb..", with increasing "..COLORS_KWords.Peril_rgb.." Level. Stacks "..COLORS_Numbers.n_4_rgb.." times."..COLORS_KWords.Pwr_note_rgb end), -- power_level: +20% -- colors
 		--[+ Lightning Reflexes +]--
 			-- Shock Mauls -- 10% | 15% | 20% | 25%
-	create_template("trait_bespoke_045_desc_ext_en", {"loc_trait_bespoke_block_has_chance_to_stun_with_cd_desc"}, {"en"}, function(locale, value) return "Timed Blocks Stun the attacker, and grant you "..COLORS_Numbers.p_pwrlvl_var_rgb.." Melee "..COLORS_KWords.Strength_rgb.." for "..COLORS_Numbers.n_3_rgb.." seconds. Cooldown "..COLORS_Numbers.n_3_rgb.." seconds."..COLORS_KWords.Pwr_note_rgb end), -- power_level: 25%, duration: 3ss!!!, cooldown_duration: 3ss!!! -- "..COLORS_Numbers.dur_var_rgb.."&"..COLORS_Numbers.cd_dur_var_rgb.."==3s -- colors
+	create_template("trait_bespoke_045_desc_ext_en", {"loc_trait_bespoke_block_has_chance_to_stun_with_cd_desc"}, {"en"}, function(locale, value) return "Timed Blocks "..COLORS_KWords.Stun_rgb.." the attacker, and grant you "..COLORS_Numbers.p_pwrlvl_var_rgb.." Melee "..COLORS_KWords.Strength_rgb.." for "..COLORS_Numbers.n_3_rgb.." seconds. Cooldown "..COLORS_Numbers.n_3_rgb.." seconds."..COLORS_KWords.Pwr_note_rgb end), -- power_level: 25%, duration: 3ss!!!, cooldown_duration: 3ss!!! -- "..COLORS_Numbers.dur_var_rgb.."&"..COLORS_Numbers.cd_dur_var_rgb.."==3s -- colors
 		--[+ High Voltage +]--
 			-- Shock Mauls -- 10% | 15% | 20% | 25%
 	create_template("trait_bespoke_046_desc_ext_en", {"loc_trait_bespoke_damage_bonus_vs_electrocuded_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.p_dmg_var_rgb.." "..COLORS_KWords.Damage_rgb.." vs "..COLORS_KWords.Electrocuted_rgb.." enemies." end), -- damage: +25% - colors
@@ -377,7 +377,7 @@ local localization_templates = {
 		--[+ Transfer Peril +]--
 			-- Electrokinetic Staff, Voidblast Staff -- 7% | 8% | 9% | 10%
 			-- Voidstrike Staff -- 6.5% | 7% | 7.5% | 8%
-	create_template("trait_bespoke_099_desc_ext_en", {"loc_trait_bespoke_peril_vent_on_weakspot_hit_desc"}, {"en"}, function(locale, value) return "Quell "..COLORS_Numbers.warpchrg_var_rgb.." of your "..COLORS_KWords.Peril_rgb.." on "..COLORS_KWords.Weakspothit_rgb.."."..COLORS_KWords.Trauma_note_rgb end), -- warp_charge: 10% -- colors
+	create_template("trait_bespoke_099_desc_ext_en", {"loc_trait_bespoke_peril_vent_on_weakspot_hit_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.warpchrg_var_rgb.." of your "..COLORS_KWords.Peril_rgb.." is quelled on "..COLORS_KWords.Weakspothit_rgb.."."..COLORS_KWords.Trauma_note_rgb end), -- warp_charge: 10% -- colors
 		--[+ Rending Shockwave +]--
 			-- Voidblast Staff -- 2 | 4 | 6 | 8
 	create_template("trait_bespoke_100_desc_ext_en", {"loc_trait_bespoke_rend_armor_on_aoe_charge_desc"}, {"en"}, function(locale, value) return "Target receives up to "..COLORS_Numbers.stacks_var_rgb.." Stacks of "..COLORS_Numbers.rending2_var_rgb.." "..COLORS_KWords.Brittleness_rgb..", scaling with charge time of Secondary Attack. Lasts "..COLORS_Numbers.time_var_rgb.." seconds. Max "..COLORS_Numbers.maxstks_var_rgb.." Stacks, up to "..COLORS_Numbers.pc_40_rgb.."."..COLORS_KWords.Brtl_note_rgb end), -- stacks: 8, rending: 2.5%, time: 5, max_stacks: 16 -- rewrite -- s->seconds -- colors -- Note
@@ -398,7 +398,7 @@ local localization_templates = {
 	create_template("trait_bespoke_105_desc_ext_en", {"loc_trait_bespoke_burninating_on_crit_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.p_stacks_var_rgb.." "..COLORS_KWords.Burn_rgb.." Stacks on "..COLORS_KWords.Crit_hit_rgb.." to a maximum of "..COLORS_Numbers.maxstks_var_rgb.." Stacks." end), -- stacks: +4, max_stacks: 12 -- Stack(s)->Stacks -- colors
 		--[+ Efficiency +]--
 			-- Infantry Lasguns -- 5.5 | 5 | 4.5 | 4
-	create_template("trait_bespoke_106_desc_ext_en", {"loc_trait_bespoke_first_shot_ammo_cost_reduction_desc"}, {"en"}, function(locale, value) return "You only use "..COLORS_Numbers.ammo_var_rgb.." of your Ammo per shot every "..COLORS_Numbers.time_var_rgb.." seconds." end), -- ammo: 33%, time: 4 -- rewrite -- return "+{ammo:%s} Reduced Ammo use after not shooting for {time:%s} seconds." -- s->seconds -- colors
+	create_template("trait_bespoke_106_desc_ext_en", {"loc_trait_bespoke_first_shot_ammo_cost_reduction_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.ammo_var_rgb.." Reduced Ammo use per shot every "..COLORS_Numbers.time_var_rgb.." seconds." end), -- ammo: 33%, time: 4 -- rewrite -- return "+{ammo:%s} Reduced Ammo use after not shooting for {time:%s} seconds." -- s->seconds -- colors
 		--[+ Concentrated Fire +]--
 			-- Laspistols -- 2% | 3% | 4% | 5% (up to +25%)
 	create_template("trait_bespoke_107_desc_ext_en", {"loc_trait_bespoke_crit_chance_on_chained_weakspot_hits_desc"}, {"en"}, function(locale, value) return "Up to "..COLORS_Numbers.p_crit_var_rgb.." "..COLORS_KWords.Crit_chance_rgb.." on Chained Ranged "..COLORS_KWords.Weakspothit_rgb.." to Any Target. Up to "..COLORS_Numbers.n_5_rgb.." Stacks." end), -- crit_chance: +5% -- colors
@@ -447,18 +447,15 @@ local localization_templates = {
 			-- Flamer -- 2% | 3% | 4% | 5% (up to +25%)
 	create_template("trait_bespoke_121_desc_ext_en", {"loc_trait_bespoke_power_scales_with_clip_percentage_desc"}, {"en"}, function(locale, value) return "Up to "..COLORS_Numbers.p_pwrlvl_var_rgb.." "..COLORS_KWords.Strength_rgb..", scaling with remaining Ammunition. Stacks "..COLORS_Numbers.stacks_var_rgb.." times."..COLORS_KWords.Pwr_note_rgb end), -- power_level: +5%, stacks: 5 -- colors
 		--[+ Hot-Shot +]--
-			-- Flamer -- 2% | 3% | 4% | 5% (up to +25%)
+			-- Helbore Lasguns -- 80% | 70% | 60% | 50% (bugged)
 	create_template("trait_bespoke_122_desc_ext_en", {"loc_trait_bespoke_cleave_on_weakspot_hits_desc"}, {"en"}, function(locale, value) return COLORS_KWords.Weakspothits_rgb.." gain "..COLORS_Numbers.hit_mass_red_var_rgb.." "..COLORS_KWords.Cleave_rgb.."." end), -- power_level: +5%, stacks: 5 -- colors
 		--[+ Weight of Fire +]--
 			-- Helbore Lasguns -- 6% | 8% | 10% | 12% (up to 60%)
 	create_template("trait_bespoke_123_desc_ext_en", {"loc_trait_bespoke_faster_charge_on_chained_attacks_desc"}, {"en"}, function(locale, value) return "Chaining Charged Attacks reduces their Charge Time by "..COLORS_Numbers.chrgtime_var_rgb..". Stacks "..COLORS_Numbers.stacks_var_rgb.." times." end), -- charge_time: -12%, stacks: 5 -- colors
 
--- BUGGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!BUGGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!BUGGED!!!!!!!!
 		--[+ Armourbane +]--
 			-- Helbore Lasguns -- 2 to 6 | 4 to 8 | 6 to 10 | 8 to 12
-	create_template("trait_bespoke_124_desc_ext_en", {"loc_trait_bespoke_rend_armor_on_charged_shots_desc"}, {"en"}, function(locale, value) return "Adds "..COLORS_Numbers.n_8_rgb.."-"..COLORS_Numbers.n_12_rgb.." Stacks of "..COLORS_Numbers.pc_2_5_rgb.." "..COLORS_KWords.Brittleness_rgb.." to hit enemies, based on charge level. Up to "..COLORS_Numbers.pc_40_rgb.." Max at "..COLORS_Numbers.n_16_rgb.." Stacks. {#color(255, 35, 5)}Broken description:T1:2-6,T2:4-8,T3:6-10.{#reset()}"..COLORS_KWords.Brtl_note_rgb end), -- min_stack_count: 8, max_stack_count: 12 -- colors
-	-- create_template("trait_bespoke_124_desc_ext_en", {"loc_trait_bespoke_rend_armor_on_charged_shots_desc"}, {"en"}, function(locale, value) return "Adds "..COLORS_Numbers.min_stk_cnt_var_rgb.."-"..COLORS_Numbers.max_stk_cnt_var_rgb.." Stacks of 2.5% Brittleness to hit enemies, based on charge level." end), -- min_stack_count: 8, max_stack_count: 12 -- colors
--- BUGGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!BUGGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!BUGGED!!!!!!!!
+	create_template("trait_bespoke_124_desc_ext_en", {"loc_trait_bespoke_rend_armor_on_charged_shots_desc"}, {"en"}, function(locale, value) return "Adds "..COLORS_Numbers.min_stk_cnt_var_rgb.."-"..COLORS_Numbers.max_stk_cnt_var_rgb.." Stacks of "..COLORS_Numbers.pc_2_5_rgb.." "..COLORS_KWords.Brittleness_rgb.." to hit enemies, based on charge level."..COLORS_KWords.Brtl_note_rgb end), -- min_stack_count: 8, max_stack_count: 12 -- colors
 
 		--[+ Power Blast +]--
 			-- Plasma Gun -- 2% | 3% | 4% | 5% (up to +25%)
@@ -532,7 +529,7 @@ local localization_templates = {
 	create_template("trait_bespoke_147_desc_ext_en", {"loc_trait_bespoke_grenades_stick_to_monsters_and_damage_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.p_dmgvogrmon_var_rgb.." "..COLORS_KWords.Damage_rgb.." vs Ogryns and Monstrosities. Your Grenades Stick to Ogryns and Monstrosities." end), -- dmg_vs_ogryn_monster: +15% -- colors
 		--[+ Marksman's Reflex +]--
 			-- Rumbler -- 15% | 20% | 25% | 30%
-	create_template("trait_bespoke_148_desc_ext_en", {"loc_trait_bespoke_weakspot_projectile_hit_increases_reload_speed_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.p_reload_var_rgb.." Reload Speed for "..COLORS_Numbers.dur_var_rgb.." on Projectile "..COLORS_KWords.Weakspothit_rgb.."." end), -- reload_speed: +30%, duration: 3 -- colors
+	create_template("trait_bespoke_148_desc_ext_en", {"loc_trait_bespoke_weakspot_projectile_hit_increases_reload_speed_desc"}, {"en"}, function(locale, value) return COLORS_Numbers.p_reload_var_rgb.." Reload Speed for "..COLORS_Numbers.dur_var_rgb.." seconds on Projectile "..COLORS_KWords.Weakspothit_rgb.."." end), -- reload_speed: +30%, duration: 3 -- colors
 }
 
 --[+ Reload localization templates when the mod is enabled or disabled +]--

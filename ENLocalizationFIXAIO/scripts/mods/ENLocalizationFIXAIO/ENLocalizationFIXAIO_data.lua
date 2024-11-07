@@ -2,96 +2,109 @@
 local mod = get_mod("ENLocalizationFIXAIO")
 
 local options = {
-    name = mod:localize("mod_name"),
-    description = mod:localize("mod_description"),
-    is_togglable = true,
-    options = {
-        widgets = {
-            {name = mod:localize("enable_curious_file"),
-                setting_id = "enable_curious_file",
-                default_value = true,
-                type = "checkbox",
-                description = mod:localize("enable_curious_file_description"),
-                
-                change = function(new_value)
-                    mod:set("enable_curious_file", new_value)
-                end,
-                get = function()
-                    return mod:get("enable_curious_file") or true
-                end
-            },
-            {name = mod:localize("enable_talents_file"),
-                setting_id = "enable_talents_file",
-                default_value = true,
-                type = "checkbox",
-                description = mod:localize("enable_talents_file_description"),
-                
-                change = function(new_value)
-                    mod:set("enable_talents_file", new_value)
-                end,
-                get = function()
-                    return mod:get("enable_talents_file") or true
-                end
-            },
-            {name = mod:localize("enable_weapons_file"),
-                setting_id = "enable_weapons_file",
-                default_value = true,
-                type = "checkbox",
-                description = mod:localize("enable_weapons_file_description"),
-                
-                change = function(new_value)
-                    mod:set("enable_weapons_file", new_value)
-                end,
-                get = function()
-                    return mod:get("enable_weapons_file") or true
-                end
-            },
-            {setting_id = "enhanced_descriptions_",
-                type = "group",
-                sub_widgets = {
-                    {name = mod:localize("enhanced_descriptions_enabled"),
-                    setting_id = "enhanced_descriptions_enabled",
-                    default_value = true,
-                    type = "checkbox",
-                    description = mod:localize("enhanced_descriptions_enabled_description"),
-                    
-                    change = function(new_value)
-                        mod:set("enhanced_descriptions_enabled", new_value)
-                    end,
-                    get = function()
-                        return mod:get("enhanced_descriptions_enabled") or true
-                    end
-                    },
-                    {name = mod:localize("enhanced_descriptions_enabled2"),
-                    setting_id = "enhanced_descriptions_enabled2",
-                    default_value = true,
-                    type = "checkbox",
-                    description = mod:localize("enhanced_descriptions_enabled2_description"),
-                    
-                    change = function(new_value)
-                        mod:set("enhanced_descriptions_enabled2", new_value)
-                    end,
-                    get = function()
-                        return mod:get("enhanced_descriptions_enabled2") or true
-                    end
-                    },
-                    {name = mod:localize("enhanced_descriptions_nodes_enabled"),
-                    setting_id = "enhanced_descriptions_nodes_enabled",
-                    default_value = true,
-                    type = "checkbox",
-                    description = mod:localize("enhanced_descriptions_nodes_enabled_description"),
-                    
-                    change = function(new_value)
-                        mod:set("enhanced_descriptions_nodes_enabled", new_value)
-                    end,
-                    get = function()
-                        return mod:get("enhanced_descriptions_nodes_enabled") or true
-                    end
-                    },
-                },
-            },
-        }
-    }
+	name = mod:localize("mod_name"),
+	description = mod:localize("mod_description"),
+	is_togglable = true,
+	options = {
+		widgets = {
+			{name = mod:localize("enable_curious_file"),
+				setting_id = "enable_curious_file",
+				default_value = true,
+				type = "checkbox",
+				description = mod:localize("enable_curious_file_description"),
+				
+				change = function(new_value)
+					mod:set("enable_curious_file", new_value)
+				end,
+				get = function()
+					return mod:get("enable_curious_file") or true
+				end
+			},
+			{name = mod:localize("enable_talents_file"),
+				setting_id = "enable_talents_file",
+				default_value = true,
+				type = "checkbox",
+				description = mod:localize("enable_talents_file_description"),
+				
+				change = function(new_value)
+					mod:set("enable_talents_file", new_value)
+				end,
+				get = function()
+					return mod:get("enable_talents_file") or true
+				end
+			},
+			{name = mod:localize("enable_menus_file"),
+				setting_id = "enable_menus_file",
+				default_value = true,
+				type = "checkbox",
+				description = mod:localize("enable_menus_file_description"),
+				
+				change = function(new_value)
+					mod:set("enable_menus_file", new_value)
+				end,
+				get = function()
+					return mod:get("enable_menus_file") or true
+				end
+			},
+			{name = mod:localize("enable_weapons_file"),
+				setting_id = "enable_weapons_file",
+				default_value = true,
+				type = "checkbox",
+				description = mod:localize("enable_weapons_file_description"),
+				
+				change = function(new_value)
+					mod:set("enable_weapons_file", new_value)
+				end,
+				get = function()
+					return mod:get("enable_weapons_file") or true
+				end
+			},
+			{setting_id = "enhanced_descriptions_",
+				type = "group",
+				sub_widgets = {
+					{name = mod:localize("enhanced_descriptions_enabled"),
+					setting_id = "enhanced_descriptions_enabled",
+					default_value = true,
+					type = "checkbox",
+					description = mod:localize("enhanced_descriptions_enabled_description"),
+					
+					change = function(new_value)
+						mod:set("enhanced_descriptions_enabled", new_value)
+					end,
+					get = function()
+						return mod:get("enhanced_descriptions_enabled") or true
+					end
+					},
+					{name = mod:localize("enhanced_descriptions_enabled2"),
+					setting_id = "enhanced_descriptions_enabled2",
+					default_value = true,
+					type = "checkbox",
+					description = mod:localize("enhanced_descriptions_enabled2_description"),
+					
+					change = function(new_value)
+						mod:set("enhanced_descriptions_enabled2", new_value)
+					end,
+					get = function()
+						return mod:get("enhanced_descriptions_enabled2") or true
+					end
+					},
+					{name = mod:localize("enhanced_descriptions_nodes_enabled"),
+					setting_id = "enhanced_descriptions_nodes_enabled",
+					default_value = true,
+					type = "checkbox",
+					description = mod:localize("enhanced_descriptions_nodes_enabled_description"),
+					
+					change = function(new_value)
+						mod:set("enhanced_descriptions_nodes_enabled", new_value)
+					end,
+					get = function()
+						return mod:get("enhanced_descriptions_nodes_enabled") or true
+					end
+					},
+				},
+			},
+		}
+	}
 }
 
 local color_options = {}
